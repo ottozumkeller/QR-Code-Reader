@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" UpgradeCode="8633b604-cbb1-4f1a-988a-2f038d70ddbc" Version="1.0.0.0" Language="1033" Name="QR-Code Reader " Manufacturer="Otto Zumkeller">
+        <Package InstallerVersion="300" Compressed="yes"/>
+        <Media Id="1" Cabinet="QR-Code Reader .cab" EmbedCab="yes" />
+
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="APPLICATIONROOTDIRECTORY" Name="QR-Code Reader "/>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ApplicationProgramsFolder" Name="QR-Code Reader "/>
+            </Directory>
+        </Directory>
+
+        <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+            <Component Id="qr_code_reader.png" Guid="60c4fad0-c86f-4d19-a565-8f9cf91f42be">
+                <File Id="qr_code_reader.png" Source="qr_code_reader.png" KeyPath="yes" Checksum="yes"/>
+            </Component>
+        </DirectoryRef>
+
+        <Icon Id="qr_code_reader.ico" SourceFile="qr_code_reader.ico" />
+        <DirectoryRef Id="ApplicationProgramsFolder">
+            <Component Id="ApplicationShortcut" Guid="ca561415-35ac-46ea-ae4d-099e4b28bc30">
+                <Shortcut Id="ApplicationStartMenuShortcut"
+                    Name="QR-Code Reader "
+                    Description="Shortcut that enables Toast Notifications"
+                    Target="[#qr_code_reader.png]"
+                    WorkingDirectory="APPLICATIONROOTDIRECTORY"
+                    Icon="qr_code_reader.ico">
+                    <ShortcutProperty Key="System.AppUserModel.ID" Value="Otto Zumkeller!QR-Code Reader " />
+                    <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{9cad21c0-35e4-4469-9655-2f36b919f6a0}"></ShortcutProperty>
+		        </Shortcut>
+                <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+
+                <RegistryValue Root="HKCU" Key="Software\Microsoft\QR-Code Reader " Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+           </Component>
+        </DirectoryRef>
+
+        <Feature Id="MainApplication" Title="Main Application" Level="1">
+            <ComponentRef Id="qr_code_reader.png" />
+            <ComponentRef Id="ApplicationShortcut" />
+        </Feature>
+    </Product>
+</Wix>
