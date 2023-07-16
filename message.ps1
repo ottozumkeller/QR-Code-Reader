@@ -2,24 +2,27 @@ param(
     [string]$Title_String
 )
 
-$Info_String = "was copied to clipboard"
+$Info_String = "wurde in die Zwischenablage kopiert"
 if ($Title_String -eq "") { 
-    $Title_String = "No QR-Code detected!"
-    $Info_String = "Please select a complete QR-Code"
-    $Title = New-BTText -Text $Title_String
-    $Info = New-BTText -Text $Info_String
-    $Button_New = New-BTButton -Content "New Scan" -Arguments "C:\Users\ottoz\Sonstiges\QR-Code Reader\read.bat"
-    $Button_Close = New-BTButton -Dismiss
-    $Action = New-BTAction -Buttons $Button_New, $Button_Close
-    $Binding = New-BTBinding -Children $Title, $Info
-    $Visual = New-BTVisual -BindingGeneric $Binding
-    $Content = New-BTContent -Visual $Visual -Action $Action
-} else {
-    $Title = New-BTText -Text $Title_String
-    $Info = New-BTText -Text $Info_String
-    $Binding = New-BTBinding -Children $Title, $Info
-    $Visual = New-BTVisual -BindingGeneric $Binding
-    $Content = New-BTContent -Visual $Visual
+    $Title_String = "Kein QR-Code erkannt!"
+    $Info_String = "Bitte w$([char]0x00E4)hlen sie einen vollst$([char]0x00E4)ndigen QR-Code"
 }
-Write-Host $Title_String $Info_String
-Submit-BTNotification -Content $Content -AppId "Otto Zumkeller!QR-Code Reader"
+
+New-BTAppId -AppId "Otto Zumkeller.QR-Code Reader"
+$Title = New-BTText -Text $Title_String
+$Info = New-BTText -Text $Info_String
+$Close = New-BTButton -Dismiss
+$Binding = New-BTBinding -Children $Title, $Info
+$Visual = New-BTVisual -BindingGeneric $Binding
+
+$Response = Invoke-WebRequest -Uri $Title_String -UseBasicParsing -Method Head
+if ($Response.StatusCode -eq 200) {
+    $Open = New-BTButton -Content "Link folgen" -Arguments $Title_String
+    $Action = New-BTAction -Buttons $Open, $Close
+    $Content = New-BTContent -Visual $Visual -Actions $Action
+    Submit-BTNotification -Content $Content -AppId "Otto Zumkeller.QR-Code Reader"
+} else {
+    $Action = New-BTAction -Buttons $Close
+    $Content = New-BTContent -Visual $Visual -Actions $Action
+    Submit-BTNotification -Content $Content -AppId "Otto Zumkeller.QR-Code Reader"
+}

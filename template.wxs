@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="*" UpgradeCode="8633b604-cbb1-4f1a-988a-2f038d70ddbc" Version="1.0.0.0" Language="1033" Name="QR-Code Reader " Manufacturer="Otto Zumkeller">
+    <Product Id="*" UpgradeCode="8633b604-cbb1-4f1a-988a-2f038d70ddbc" Version="1.0.0.0" Language="1033" Name="QR-Code Reader" Manufacturer="Otto Zumkeller">
         <Package InstallerVersion="300" Compressed="yes"/>
-        <Media Id="1" Cabinet="QR-Code Reader .cab" EmbedCab="yes" />
+        <Media Id="1" Cabinet="QR-Code Reader.cab" EmbedCab="yes" />
 
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="ProgramFilesFolder">
-                <Directory Id="APPLICATIONROOTDIRECTORY" Name="QR-Code Reader "/>
+                <Directory Id="APPLICATIONROOTDIRECTORY" Name="QR-Code Reader"/>
             </Directory>
             <Directory Id="ProgramMenuFolder">
-                <Directory Id="ApplicationProgramsFolder" Name="QR-Code Reader "/>
+                <Directory Id="ApplicationProgramsFolder" Name="QR-Code Reader"/>
             </Directory>
         </Directory>
 
@@ -23,17 +23,17 @@
         <DirectoryRef Id="ApplicationProgramsFolder">
             <Component Id="ApplicationShortcut" Guid="ca561415-35ac-46ea-ae4d-099e4b28bc30">
                 <Shortcut Id="ApplicationStartMenuShortcut"
-                    Name="QR-Code Reader "
-                    Description="Shortcut that enables Toast Notifications"
+                    Name="QR-Code Reader"
+                    Description="QR-Code Reader using Windows Snipping Tool, ZBar Image and BurntToast"
                     Target="[#qr_code_reader.png]"
                     WorkingDirectory="APPLICATIONROOTDIRECTORY"
                     Icon="qr_code_reader.ico">
-                    <ShortcutProperty Key="System.AppUserModel.ID" Value="Otto Zumkeller!QR-Code Reader " />
-                    <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{9cad21c0-35e4-4469-9655-2f36b919f6a0}"></ShortcutProperty>
+                    <ShortcutProperty Key="System.AppUserModel.ID" Value="Otto Zumkeller.QR-Code Reader" />
+                    <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{1dbb2394-69a0-40a4-9222-6e5e0d3e3485}"></ShortcutProperty>
 		        </Shortcut>
                 <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
 
-                <RegistryValue Root="HKCU" Key="Software\Microsoft\QR-Code Reader " Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+                <RegistryValue Root="HKCU" Key="Software\Microsoft\QR-Code Reader" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
            </Component>
         </DirectoryRef>
 
