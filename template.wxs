@@ -93,8 +93,8 @@
             <ComponentRef Id="uninstall.ps1" />
         </Feature>
 
-        <CustomAction Id="InstallScript" Directory="APPLICATIONROOTDIRECTORY" Execute="deferred" Impersonate="no" ExeCommand="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -ExecutionPolicy Bypass -File &quot;[APPLICATIONROOTDIRECTORY]install.ps1&quot;" Return="check" />
-        <CustomAction Id="UninstallScript" Directory="APPLICATIONROOTDIRECTORY" Execute="deferred" Impersonate="no" ExeCommand="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -ExecutionPolicy Bypass -File &quot;[APPLICATIONROOTDIRECTORY]uninstall.ps1&quot;" Return="check" />
+        <CustomAction Id="InstallScript" Directory="APPLICATIONROOTDIRECTORY" Execute="deferred" Impersonate="no" ExeCommand="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -WindowStyle Hidden -ExecutionPolicy Bypass -File &quot;[APPLICATIONROOTDIRECTORY]install.ps1&quot;" Return="check" />
+        <CustomAction Id="UninstallScript" Directory="APPLICATIONROOTDIRECTORY" Execute="deferred" Impersonate="no" ExeCommand="&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -WindowStyle Hidden -ExecutionPolicy Bypass -File &quot;[APPLICATIONROOTDIRECTORY]uninstall.ps1&quot;" Return="check" />
 
         <InstallExecuteSequence>
             <Custom Action="InstallScript" Before="InstallFinalize">NOT Installed</Custom>
