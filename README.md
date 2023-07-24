@@ -4,7 +4,7 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
 
 ## Requirements:
 
-- Windows 11 21H2
+- Windows 10 21H2
 - Permission to run remote scripts
 <br>(Enable Switch under `Settings > Privacy and Security / System > For Developers > PowerShell`)
 
