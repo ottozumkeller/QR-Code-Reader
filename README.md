@@ -4,7 +4,7 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
 
 ## System Requirements:
 
-- Windows 10 Version 2004 (20H1) or higher
+- Windows 10 Version 2004 (20H1) or later
 - Permission to execute remote scripts
    <br>Windows 10:
    <br>Click on "Apply" under `Settings > Privacy and Security > For Developers > PowerShell`
