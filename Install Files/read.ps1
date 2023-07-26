@@ -1,36 +1,28 @@
-Set-Location "C:\Program Files (x86)\QR-Code Reader"
 Start-Process "ms-screenclip:"
 
-Start-Sleep -Seconds 2.0
-Start-Process -FilePath ".\key.exe"
+Start-Sleep -Seconds 1.0
 Wait-Process "ScreenClippingHost"
 
-# Set directory for screenshots
-$Screenshots = "$([Environment]::GetFolderPath("MyPictures"))\Screenshots"
-# Get all files in screenshots directory, sort them by creation time and return the path of the first one (e.g. the newest)
-$Latest = Get-ChildItem -Path $Screenshots | Sort-Object CreationTime -Descending | Select-Object -First 1 -ExpandProperty FullName
-    
-# True if File is not older than 3 Seconds
-Try {
-    $Check = !(Test-Path $Latest -OlderThan (Get-Date).AddSeconds(-3))
-} Catch {
-    $Check = $False
-}
-if ($Check) {
-    $Title_String = & .\zbarimg.exe -q --raw $Latest
-    $Info_String = "wurde in die Zwischenablage kopiert"
+$Name = "temp.png"
+$Image = Get-Clipboard -Format Image
+if ($Image) {
+    $Image.Save($Name)
+
+    $Title_String = & .\ZBar\zbarimg.exe -q --raw $Name
+    $Info_String = "was copied to clipboard"
     if ($Title_String) {
         Set-Clipboard -Value $Title_String
     } else {
-        $Script:Title_String = "Kein QR-Code erkannt!"
-        $Script:Info_String = "Bitte w$([char]0x00E4)hlen sie einen vollst$([char]0x00E4)ndigen QR-Code"
+        $Script:Title_String = "No QR-Code detected!"
+        $Script:Info_String = "Please select a complete QR-Code"
     }
-    Import-Module BurntToast
-    Remove-Item -Path $Latest
+    Remove-Item -Path $Name
+
+    Import-Module $PSScriptRoot\BurntToast
     New-BTAppId -AppId "Otto Zumkeller.QR-Code Reader"
     $Title = New-BTText -Text $Title_String
     $Info = New-BTText -Text $Info_String
-    $Open = New-BTButton -Content "Link folgen" -Arguments $Title_String
+    $Open = New-BTButton -Content "Follow Link" -Arguments $Title_String
     $Close = New-BTButton -Dismiss
     $Action = New-BTAction -Buttons $Close
     if ([Uri]::IsWellFormedUriString($Title_String, 0)) {
@@ -41,3 +33,4 @@ if ($Check) {
     $Content = New-BTContent -Visual $Visual -Actions $Action
     Submit-BTNotification -Content $Content -AppId "Otto Zumkeller.QR-Code Reader"
 }
+Start-Process -FilePath ".\AutoHotkey\key.exe"
