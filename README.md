@@ -6,7 +6,7 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
 
 - Windows 10 Version 2004 (20H1) or later
 - Permission to execute remote scripts
-  <br>(Change Setting under `Settings > Update and Security / System > For Developers > PowerShell`)
+  <br>(Change Setting under `Settings > Update & Security / Privacy & Security / System > For Developers > PowerShell`)
 
 
 ## Installation and Usage:
