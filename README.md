@@ -7,15 +7,18 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
 - Windows 10 Version 2004 (20H1) or later
 - Permission to execute remote scripts
     <br>Depending on your Windows version, change Setting under:
-    - `Settings > Update & Security > For Developers > PowerShell`
     - `Settings > Privacy & Security > For Developers > PowerShell`
+    - `Settings > Update & Security > For Developers > PowerShell`
     - `Settings > System > For Developers > PowerShell`
+- *(Recommended)* Enable your clipboard history under:
+  - `Settings > System > Clipboard > Clipboard History`
+  <br>Otherwise QR-Code Reader will still work, but the current clipboard content will be overwritten.
 
 
 ## Installation and Usage:
 
 1. Download the MSI package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)
-2. Make sure you have permission to execute remote scripts
+2. ***(Important)*** Make sure you have permission to execute remote scripts
 3. Install the MSI package
 4. Start QR-Code Reader from
    - The start menu
