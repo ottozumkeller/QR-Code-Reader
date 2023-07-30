@@ -10,9 +10,6 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
     - `Settings > Privacy & Security > For Developers > PowerShell`
     - `Settings > Update & Security > For Developers > PowerShell`
     - `Settings > System > For Developers > PowerShell`
-- *(Recommended)* Enable your clipboard history under:
-  - `Settings > System > Clipboard > Clipboard History`
-  <br>Otherwise QR-Code Reader will still work, but the current clipboard content will be overwritten.
 
 
 ## Installation and Usage:
