@@ -1,4 +1,4 @@
-QR-Code Reader is a QR code scanner application that allows you to scan and dncode QR codes directly from your computer screen.
+QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly from your computer screen.
 This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mchehab/zbar) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
 
 
