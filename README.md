@@ -1,21 +1,16 @@
 QR-Code Reader is a QR code scanner application that allows you to scan and encode QR codes directly from your computer screen.
-This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mchehab/zbar), [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey) and [BurntToast](https://github.com/Windos/BurntToast).
+This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mchehab/zbar) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
 
 
 ## System Requirements:
 
 - Windows 10 Version 2004 (20H1) or later
-- Permission to execute remote scripts
-    <br>Depending on your Windows version, change Setting under:
-    - `Settings > Privacy & Security > For Developers > PowerShell`
-    - `Settings > Update & Security > For Developers > PowerShell`
-    - `Settings > System > For Developers > PowerShell`
+- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool under `Settings > Notifications`
 
 
 ## Installation and Usage:
 
 1. Download the MSI package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)
-2. ***(Important)*** Make sure you have permission to execute remote scripts
 3. Install the MSI package
 4. Start QR-Code Reader from
    - The start menu
