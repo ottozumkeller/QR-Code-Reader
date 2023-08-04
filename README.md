@@ -6,7 +6,7 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
 
 - Windows 10 Version 2004 (20H1) or later
 - Windows Snipping Tool must be installed
-- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool under `Settings > Notifications`
+- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool <br>under `Settings > Notifications`
 
 
 ## Installation and Usage:
