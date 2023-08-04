@@ -1,0 +1,1 @@
+ps2exe .\read.ps1 .\read.exe -iconFile '.\qr_reader.ico' -title 'QR-Code Reader' -description 'QR-Code Reader using Windows Snipping Tool, ZBar Image, AutoHotkey and BurntToast' -noConsole

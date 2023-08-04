@@ -21,9 +21,9 @@ Add-Type -AssemblyName System.Drawing
 
 if ([Windows.Forms.Clipboard]::ContainsImage()) {
     if ([Windows.ApplicationModel.DataTransfer.Clipboard]::IsHistoryEnabled()) {
-        $Null = [Windows.ApplicationModel.DataTransfer.DataPackage,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime]
-        $Null = [Windows.ApplicationModel.DataTransfer.ClipboardContentOptions,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime]
-        $Null = [Windows.ApplicationModel.DataTransfer.Clipboard,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime]
+        [Windows.ApplicationModel.DataTransfer.DataPackage,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime] | Out-Null
+        [Windows.ApplicationModel.DataTransfer.ClipboardContentOptions,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime] | Out-Null
+        [Windows.ApplicationModel.DataTransfer.Clipboard,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime] | Out-Null
     
         $Target = [Windows.ApplicationModel.DataTransfer.Clipboard]::GetHistoryItemsAsync()
         $History = Await ($Target) ([Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult])
@@ -52,19 +52,37 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
         Set-Clipboard -Value $Entry
     }
     Remove-Item -Path $Name -ErrorAction SilentlyContinue
-    Import-Module $PSScriptRoot\burnttoast.psm1
-    New-BTAppId -AppId "Otto Zumkeller.QR-Code Reader"
-    $Title = New-BTText -Text $Title_String
-    $Info = New-BTText -Text $Info_String
-    $Open = New-BTButton -Content "Follow Link" -Arguments $Title_String
-    $Close = New-BTButton -Dismiss
-    $Action = New-BTAction -Buttons $Close
+
+    [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
+    [Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
+    [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] | Out-Null
+
+    $AppId = "Otto Zumkeller.QR-Code Reader"
+    $Open = ""
+
     if ([Uri]::IsWellFormedUriString($Title_String, 0)) {
-        $Script:Action = New-BTAction -Buttons $Open, $Close
+        $Script:Open = "<action content='Follow Link' activationType='protocol' arguments='$($Title_String)'/>"
     }
-    $Binding = New-BTBinding -Children $Title, $Info
-    $Visual = New-BTVisual -BindingGeneric $Binding
-    $Content = New-BTContent -Visual $Visual -Actions $Action
-    Submit-BTNotification -Content $Content -AppId "Otto Zumkeller.QR-Code Reader"
+
+    $Template = 
+@"
+        <toast launch="$($Title_String)">
+            <visual>
+                <binding template="ToastGeneric">
+                    <text id="1">$($Title_String)</text>
+                    <text id="2">$($Info_String)</text>
+                </binding>
+            </visual>
+            <actions>
+                $($Open)
+                <action activationType="system" arguments="dismiss" content=""/>
+            </actions>
+        </toast>
+"@
+
+    $Xml = New-Object Windows.Data.Xml.Dom.XmlDocument
+    $Xml.LoadXml($Template)
+    $Toast = New-Object Windows.UI.Notifications.ToastNotification $Xml
+    [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($AppId).Show($Toast)
 }
 Start-Process -FilePath ".\key_listener.exe"
