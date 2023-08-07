@@ -31,7 +31,6 @@ Tray.add "Close", Close
 #!Q::
 {
     Scan()
-    Exit
 }
 
 Scan(*)
