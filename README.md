@@ -2,6 +2,14 @@ QR-Code Reader is a QR code scanner application that allows you to scan and deco
 This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mchehab/zbar) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
 
 
+## Features
+
+- Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.
+- Copy the content of QR codes to the clipboard and display a notification.
+- Directly open Weblinks and other URI's in your default browser or specified programm via a notification.
+- Directly connect to WiFi-Networks via a notification.
+
+  
 ## System Requirements:
 
 - Windows 10 Version 2004 (20H1) or later
