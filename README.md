@@ -7,7 +7,7 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
 - Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.
 - Copy the content of QR codes to the clipboard and display a notification.
 - Directly open Weblinks and other URI's in your default browser or specified programm via a notification.
-- Directly connect to WiFi-Networks via a notification.
+- Directly connect to WiFi-Networks via a notification. *(Currently only supports WPA2-Personal authenticated networks)*
 
   
 ## System Requirements:
