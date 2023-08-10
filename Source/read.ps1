@@ -51,24 +51,36 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
 
     $AppId = "Otto Zumkeller.QR-Code Reader"
     $Open = ""
-
-    if ([Uri]::IsWellFormedUriString($Title_String, 0)) {
-        $Script:Open = "<action content='Follow Link' activationType='protocol' arguments='$($Title_String)'/>"
+    $Array = ""
+    $Visual_Title_String = $Title_String
+    if ([Uri]::IsWellFormedUriString([Uri]::EscapeDataString($Title_String), 0)) {
+        $Prompt = "Follow Link"
+        if ($Title_String -Like "wifi:*") {
+            $Script:Array = $Title_String.Split(":").Split(";")
+            $Script:Visual_Title_String = "WiFi QR-Code detected!"
+            $Script:Info_String = "Network Name: $($Array[[Array]::IndexOf($Array, "S") + 1])"
+            $Script:Prompt = "Connect"
+        }
+        $Script:Open =
+@"
+    <action content="$($Prompt)" activationType="protocol" arguments="$($Title_String)"/>
+"@
     }
 
-    $Template = @"
-        <toast>
-            <visual>
-                <binding template="ToastGeneric">
-                    <text id="1">$($Title_String)</text>
-                    <text id="2">$($Info_String)</text>
-                </binding>
-            </visual>
-            <actions>
-                $($Open)
-                <action activationType="system" arguments="dismiss" content=""/>
-            </actions>
-        </toast>
+    $Template =
+@"
+    <toast>
+        <visual>
+            <binding template="ToastGeneric">
+                <text id="1">$($Visual_Title_String)</text>
+                <text id="2">$($Info_String)</text>
+            </binding>
+        </visual>
+        <actions>
+            $($Open)
+            <action activationType="system" arguments="dismiss" content=""/>
+        </actions>
+    </toast>
 "@
 
     [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
@@ -81,3 +93,14 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
     [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($AppId).Show($Toast)
 }
 Start-Process -FilePath ".\key.exe"
+
+
+
+
+
+
+
+
+
+
+# file:///powershell.exe -file "Q:\QR-Reader\Source\read.exe"

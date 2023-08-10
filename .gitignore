@@ -3,4 +3,6 @@ setup.wixobj
 setup.wixpdb
 read.exe
 key.exe
+actions.exe
+test.bat
 
