@@ -9,9 +9,9 @@ $Name = $ENV:Temp + "\temp.png"
 Add-Type -AssemblyName System.Windows.Forms
 
 if ([Windows.Forms.Clipboard]::ContainsImage()) {
-    [Windows.ApplicationModel.DataTransfer.DataPackage,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime] | Out-Null
-    [Windows.ApplicationModel.DataTransfer.ClipboardContentOptions,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime] | Out-Null
-    [Windows.ApplicationModel.DataTransfer.Clipboard,Windows.ApplicationModel.DataTransfer,ContentType=WindowsRuntime] | Out-Null
+    [Windows.ApplicationModel.DataTransfer.DataPackage, Windows.ApplicationModel.DataTransfer, ContentType = WindowsRuntime] | Out-Null
+    [Windows.ApplicationModel.DataTransfer.ClipboardContentOptions, Windows.ApplicationModel.DataTransfer, ContentType = WindowsRuntime] | Out-Null
+    [Windows.ApplicationModel.DataTransfer.Clipboard, Windows.ApplicationModel.DataTransfer, ContentType = WindowsRuntime] | Out-Null
     Add-Type -AssemblyName System.Drawing
 
     if ([Windows.ApplicationModel.DataTransfer.Clipboard]::IsHistoryEnabled()) {
@@ -24,7 +24,7 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
         $NetTask.Wait(-1) | Out-Null
         $History = $NetTask.Result
 
-        if ($History::Items[0].Timestamp -gt [System.DateTimeOffset]::Now.AddSeconds(-2)) { # True, if image is newer than 2 seconds
+        if ($History::Items[0].Timestamp -gt [System.DateTimeOffset]::Now.AddSeconds(-5)) { # True, if image is newer than 2 seconds
             $Image = [Windows.Forms.Clipboard]::GetImage()
             $Image.Save($Name, [Drawing.Imaging.ImageFormat]::Png)
             [Windows.ApplicationModel.DataTransfer.Clipboard]::DeleteItemFromHistory($History::Items[0]) | Out-Null
@@ -48,6 +48,7 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
         Set-Clipboard -Value $Entry
     }
     Remove-Item -Path $Name -ErrorAction SilentlyContinue
+    Get-ChildItem "$([System.Environment]::GetFolderPath("MyPictures"))\Screenshots" -Recurse | Where-Object CreationTime -gt (Get-Date).AddSeconds(-5) | Remove-Item
 
     $AppId = "Otto Zumkeller.QR-Code Reader"
     $Open = ""
@@ -93,14 +94,3 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
     [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($AppId).Show($Toast)
 }
 Start-Process -FilePath ".\key.exe"
-
-
-
-
-
-
-
-
-
-
-# file:///powershell.exe -file "Q:\QR-Reader\Source\read.exe"

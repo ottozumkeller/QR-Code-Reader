@@ -71,7 +71,7 @@
                 <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\QR-Code Reader" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Otto Zumkeller.QR-Code Reader" Name="ShowInActionCenter" Type="integer" Value="1" KeyPath="no"/>
-                <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="QR-Code Reader" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\key_listener.exe&quot;" KeyPath="no"/>
+                <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="QR-Code Reader" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\key.exe&quot;" KeyPath="no"/>
                 <RegistryValue Root="HKCR" Key="wifi" Name="URL Protocol" Type="string" Value="" KeyPath="no"/>
                 <RegistryValue Root="HKCR" Key="wifi\shell\open\command" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\actions.exe&quot; &quot;%1&quot;" KeyPath="no"/>
             </Component>
