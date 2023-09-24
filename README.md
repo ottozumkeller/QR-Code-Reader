@@ -10,14 +10,14 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
 - Directly connect to WiFi-Networks via a notification. *(Currently only supports WPA2-Personal authenticated networks)*
 
   
-## System Requirements:
+## System Requirements
 
 - Windows 10 Version 2004 (20H1) or later
 - Windows Snipping Tool must be installed
 - *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool <br>under `Settings > Notifications`
 
 
-## Installation and Usage:
+## Installation and Usage
 
 1. Download the MSI package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)
 3. Install the MSI package
