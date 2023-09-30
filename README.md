@@ -1,6 +1,6 @@
 <p align="center">
   <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo.png" width="150" />
-  <h2 align="center">QR-Code Reader</h2>
+  <h2></h2>
 </p>
 
 QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly from your computer screen.
