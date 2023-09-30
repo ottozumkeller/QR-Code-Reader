@@ -1,3 +1,13 @@
+<p align="center">
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo.png" width="150" />
+  <h2 align="center">QR-Code Reader</h2>
+</p>
+
+[![Current Release](https://img.shields.io/github/release/rocksdanister/lively/all.svg)](https://github.com/rocksdanister/lively/releases)
+[![Downloads](https://img.shields.io/github/downloads/rocksdanister/lively/total.svg)](https://github.com/rocksdanister/lively/releases)
+![GitHub Stars](https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader)
+
+
 QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly from your computer screen.
 This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mchehab/zbar) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
 
@@ -27,4 +37,13 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
    - A click on the system tray icon (visible after first launch)
 5. Select the QR code or the whole screen via Windows Snipping Tool. (It is recommended to select the QR-Code with as little different colored surrounding content as possible to ensure a correct recognition.)
 6. The content of the QR code is copied to the clipboard and displayed in a notification (if it is a valid URL, it can be opened directly via the integrated button)
+
+
+## Screenshots
+
+<details>
+    <summary>Show Screenshot Collection</summary><br>
+    <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_collection.png" />
+</details>
+
 
