@@ -27,7 +27,7 @@
 
 - Windows 10 Version 2004 (20H1) or later (Check your Version under <a href="https://tinyurl.com/4pxm8wes">`Settings > System > Info`</a>) <a href=".\#Notes"><sup>*</sup></a>
 - Windows Snipping Tool must be installed
-- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool under <a href="https://tinyurl.com/35mdtcsk">`Settings > System > Notifications`</a> <a href=".\#Notes"><sup>*</sup></a>
+- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool<br>under <a href="https://tinyurl.com/35mdtcsk">`Settings > System > Notifications`</a> <a href=".\#Notes"><sup>*</sup></a>
 
 
 ## Installation and Usage
