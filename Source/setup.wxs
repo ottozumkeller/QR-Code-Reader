@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?define version = "1.0.1"?>
+<?define upgradecode = "8633b604-cbb1-4f1a-988a-2f038d70ddbc"?>
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="*" UpgradeCode="8633b604-cbb1-4f1a-988a-2f038d70ddbc" Version="1.0.0" Language="1033" Name="QR-Code Reader" Manufacturer="Otto Zumkeller">
+    <Product Id="*" UpgradeCode="$(var.upgradecode)" Version="$(var.version)" Language="1033" Name="QR-Code Reader" Manufacturer="Otto Zumkeller">
         <Package InstallerVersion="300" Compressed="yes"/>
         <Media Id="1" Cabinet="QR-Code Reader.cab" EmbedCab="yes" />
+
+        <Upgrade Id="$(var.upgradecode)">
+            <UpgradeVersion Minimum="$(var.version)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
+            <UpgradeVersion Minimum="0.0.0" Maximum="$(var.version)" IncludeMinimum="yes" IncludeMaximum="no" Property="OLDERVERSIONBEINGUPGRADED"/>	  
+        </Upgrade>
 
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="ProgramFilesFolder">
@@ -65,12 +74,12 @@
                           Target="[ProgramFilesFolder]QR-Code Reader\read.exe"
                           WorkingDirectory="RootFolder"
                           Icon="Icon">
-                    <ShortcutProperty Key="System.AppUserModel.ID" Value="Otto Zumkeller.QR-Code Reader" />
+                    <ShortcutProperty Key="System.AppUserModel.ID" Value="OttoZumkeller.QR-CodeReader" />
                     <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{1dbb2394-69a0-40a4-9222-6e5e0d3e3485}"></ShortcutProperty>
 		        </Shortcut>
                 <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\QR-Code Reader" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
-                <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Otto Zumkeller.QR-Code Reader" Name="ShowInActionCenter" Type="integer" Value="1" KeyPath="no"/>
+                <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\OttoZumkeller.QR-CodeReader" Name="ShowInActionCenter" Type="integer" Value="1" KeyPath="no"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="QR-Code Reader" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\key.exe&quot;" KeyPath="no"/>
                 <RegistryValue Root="HKCR" Key="wifi" Name="URL Protocol" Type="string" Value="" KeyPath="no"/>
                 <RegistryValue Root="HKCR" Key="wifi\shell\open\command" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\actions.exe&quot; &quot;%1&quot;" KeyPath="no"/>
@@ -93,5 +102,9 @@
             <ComponentRef Id="zlib1.dll" />
             <ComponentRef Id="libiconv_2.dll" />
         </Feature>
+
+        <InstallExecuteSequence>
+            <RemoveExistingProducts Before="InstallInitialize" /> 
+        </InstallExecuteSequence>
     </Product>
 </Wix>

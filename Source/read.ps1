@@ -54,19 +54,29 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
     $Open = ""
     $Array = ""
     $Visual_Title_String = $Title_String
-    if ([Uri]::IsWellFormedUriString([Uri]::EscapeDataString($Title_String), 0)) {
-        $Prompt = "Follow Link"
-        if ($Title_String -Like "wifi:*") {
-            $Script:Array = $Title_String.Split(":").Split(";")
-            $Script:Visual_Title_String = "WiFi QR-Code detected!"
-            $Script:Info_String = "Network Name: $($Array[[Array]::IndexOf($Array, "S") + 1])"
-            $Script:Prompt = "Connect"
+    $Status = ""
+
+    Try {
+        $Request = [System.Net.WebRequest]::Create($Title_String)
+        $Request.Method = 'HEAD'
+        $Response = $Request.GetResponse()
+        $Status = $Response.StatusCode
+        $Response.Close()
+    } Catch [System.Exception] {}
+
+        if (($Status -eq 'OK') -Or ($Title_String -Like "wifi:*") ) {
+            if ($Status -Eq 'OK') {
+                $Script:Open ='<action content="Follow Link" activationType="protocol" arguments="' + $Title_String + '"/>'
+            }
+
+            if ($Title_String -Like "wifi:*") {
+                $Script:Array = $Title_String.Split(":").Split(";")
+                $Script:Visual_Title_String = "WiFi QR-Code detected!"
+                $Script:Info_String = "Network Name: $($Array[[Array]::IndexOf($Array, "S") + 1])"
+                $Script:Open ='<action content="Connect" activationType="protocol" arguments="' + $Title_String + '"/>'
+            }
+            
         }
-        $Script:Open =
-@"
-    <action content="$($Prompt)" activationType="protocol" arguments="$($Title_String)"/>
-"@
-    }
 
     $Template =
 @"
