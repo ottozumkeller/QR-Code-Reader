@@ -1,11 +1,18 @@
+<br>
 <p align="center">
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo.png" width="150" />
-  <h2></h2>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo.png" height="150px"/><br><br>
+  <p align="center">
+    QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly<br>
+    from your computer screen. This app is made possible by Windows Snipping Tool, <a href="https://github.com/mchehab/zbar">ZBar</a> and <a href="https://github.com/AutoHotkey/AutoHotkey">AutoHotkey</a>.
+    <br><br>
+    <img alt="Current Version" src="https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Current%20Version&amp;color=7d8590&amp;link=https%3A%2F%2Fgithub.com%2Fottozumkeller%2FQR-Code-Reader%2Freleases">
+    &nbsp;
+    <img alt="Downloads" src="https://img.shields.io/github/downloads/ottozumkeller/QR-Code-Reader/total?style=for-the-badge&amp;label=Downloads&amp;color=7d8590&amp;link=https%3A%2F%2Fgithub.com%2Fottozumkeller%2FQR-Code-Reader%2Freleases">
+    &nbsp;
+    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Github%20Stars&amp;color=7d8590">
+  </p>
 </p>
-
-QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly from your computer screen.
-This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mchehab/zbar) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
-
+<br>
 
 ## Features
 
@@ -17,7 +24,7 @@ This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mc
   
 ## System Requirements
 
-- Windows 10 Version 2004 (20H1) or later
+- Windows 10 Version 2004 (20H1) or later (<a href="https://tinyurl.com/4pxm8wes">Check your Version</a>)
 - Windows Snipping Tool must be installed
 - *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool <br>under `Settings > Notifications`
 
