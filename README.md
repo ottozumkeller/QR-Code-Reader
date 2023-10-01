@@ -53,7 +53,7 @@
 
 <details>
   <summary>&nbsp;Show Screenshot Collection</summary><br>
-    <p float="left">
+    <p float="left" width="100%">
       <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1.png" width="30%" />
       <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_2.png" width="30%" />
       <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_3.png" width="30%" />
