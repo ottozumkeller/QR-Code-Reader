@@ -103,14 +103,11 @@
             <ComponentRef Id="libiconv_2.dll" />
         </Feature>
 
-        <CustomAction Id="start_exe"
-            Return="asyncNoWait"
-            Directory="TARGETDIR"
-            ExeCommand="[TARGETDIR]key.exe" />
+        <CustomAction Id="start_exe" Return="asyncNoWait" FileKey="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" ExeCommand="" />
 
         <InstallExecuteSequence>
-            <RemoveExistingProducts Before="InstallInitialize" /> 
-            <Custom Action="start_exe" After="InstallFinalize"></Custom>
+            <Custom Action="start_exe" After="InstallFinalize">NOT Installed</Custom>
+            <RemoveExistingProducts Before="InstallInitialize" />
         </InstallExecuteSequence>
     </Product>
 </Wix>
