@@ -24,9 +24,9 @@
   
 ## System Requirements
 
-- Windows 10 Version 2004 (20H1) or later (<a href="https://tinyurl.com/4pxm8wes">Check your Version</a>)
+- Windows 10 Version 2004 (20H1) or later (Check your Version under <a href="https://tinyurl.com/4pxm8wes">`Settings > System > Info`</a>) <a href=".\#Notes">*</a>
 - Windows Snipping Tool must be installed
-- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool <br>under `Settings > Notifications`
+- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool <br>under <a href="https://tinyurl.com/35mdtcsk">`Settings > System > Notifications`</a> <a href=".\#Notes">*</a>
 
 
 ## Installation and Usage
@@ -47,5 +47,9 @@
     <summary>Show Screenshot Collection</summary><br>
     <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_collection.png" />
 </details>
+
+
+## Notes
+\* Links with an asterisk have been shortend with [tinyurl.com](https://tinyurl.com/app) for greater convenience, because Github doesn't allow "ms-settings://" links ☹️.
 
 
