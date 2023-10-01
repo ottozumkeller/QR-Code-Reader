@@ -13,7 +13,6 @@
     <a href="https://github.com/ottozumkeller/QR-Code-Reader/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Stars&amp;logo=GitHub&amp;color=e3b341"></a>
   </p>
 </p>
-<br>
 
 ## Features
 
@@ -21,7 +20,6 @@
 - Copy the content of QR codes to the clipboard and display a notification.
 - Directly open Weblinks and other URI's in your default browser or specified programm via a notification.
 - Directly connect to WiFi-Networks via a notification. *(Currently only supports WPA2-Personal authenticated networks)*
-
   
 ## System Requirements
 
@@ -29,36 +27,41 @@
 - Windows Snipping Tool must be installed
 - *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool<br>under <a href="https://tinyurl.com/35mdtcsk">`Settings > System > Notifications`</a> <a href=".\#Notes"><sup>*</sup></a>
 
+## Installation
 
-## Installation and Usage
+- You can install QR-Code Reader from the following sources<br>
+  #### GitHub
+  Download the .msi package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)<br>
+  #### WinGet
+  Run the following command in a Cmd, PowerShell or Terminal window
+  
+  ```cmd
+  winget install OttoZumkeller.QR-CodeReader
+  ```
 
-1. Install the MSI package from:<br>
-     #### GitHub
-     Download the .msi package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)<br>
-     #### WinGet
-     Run the following command in a Cmd, PowerShell or Terminal window
-      ```cmd
-      winget install OttoZumkeller.QR-CodeReader
-      ```
+## Usage
 
-3. Start QR-Code Reader from:
+1. After the Installation open QR-Code Reader from:
    - The start menu
-   - The key combination <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd> *(recognized after first launch)*
-   - A click on the system tray icon *(visible after first launch)*
+   - The key combination <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd>
+   - A click on the system tray icon
 
-4. Select the QR code or the whole screen via Windows Snipping Tool.
-5. The content of the QR code is copied to the clipboard and displayed in a notification (if it is a valid URL, it can be opened directly via the integrated button)
-
+2. Select the QR code or the whole screen via Windows Snipping Tool.
+3. The content of the QR code is copied to the clipboard and displayed in a notification (if it is a valid URL, it can be opened directly via the integrated button)
 
 ## Screenshots
 
 <details>
-    <summary>Show Screenshot Collection</summary><br>
-    <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_collection.png" />
+  <summary>&nbsp;Show Screenshot Collection</summary><br>
+    <p float="left">
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1.png" width="33%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_2.png" width="33%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_3.png" width="33%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_4.png" width="33%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_5.png" width="33%" />
+    </p>
 </details>
 
-
 ## Notes
+
 \* Links with an asterisk have been shortend with [tinyurl.com](https://tinyurl.com/app) for greater convenience, because Github doesn't allow "ms-settings://" links ☹️.
-
-
