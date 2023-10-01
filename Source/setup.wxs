@@ -103,8 +103,14 @@
             <ComponentRef Id="libiconv_2.dll" />
         </Feature>
 
+        <CustomAction Id="start_exe"
+            Return="asyncNoWait"
+            Directory="TARGETDIR"
+            ExeCommand="[TARGETDIR]key.exe" />
+
         <InstallExecuteSequence>
             <RemoveExistingProducts Before="InstallInitialize" /> 
+            <Custom Action="start_exe" After="InstallFinalize"></Custom>
         </InstallExecuteSequence>
     </Product>
 </Wix>

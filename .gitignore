@@ -1,5 +1,5 @@
 manifests
-Setup.msi
+*.msi
 setup.wixobj
 setup.wixpdb
 read.exe
