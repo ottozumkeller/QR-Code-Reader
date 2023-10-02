@@ -19,14 +19,19 @@
 
 - Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.
 - Copy the content of QR codes to the clipboard and display a notification.
-- Directly open Weblinks and other URI's in your default browser or specified programm via a notification.
-- Directly connect to WiFi-Networks via a notification. *(Currently only supports WPA2-Personal authenticated networks)*
+- Directly open Weblinks in your default browser via a notification.
+- Directly connect to WiFi-Networks via a notification.
+
+  > Currently only supports WPA2-Personal authenticated networks
   
 ## System Requirements
 
-- Windows 10 Version 2004 (20H1) or later (Check your Version under <a href="https://tinyurl.com/4pxm8wes">`Settings > System > Info`</a>) <a href=".\#Notes"><sup>*</sup></a>
+- Windows 10 Version 2004 (20H1) or later
+  
+  > Check your Version under [Settings > System > Info](https://tinyurl.com/4pxm8wes) <sup>[*](.\#Notes)</sup>
 - Windows Snipping Tool must be installed
-- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool<br>under <a href="https://tinyurl.com/35mdtcsk">`Settings > System > Notifications`</a> <a href=".\#Notes"><sup>*</sup></a>
+  
+  > It is recommended to turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/35mdtcsk) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
 
 ## Installation
 
@@ -42,13 +47,15 @@
 
 ## Usage
 
-1. After the Installation open QR-Code Reader from:
+- After the Installation open QR-Code Reader from:
    - The start menu
    - The key combination <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd>
    - A click on the system tray icon
 
-2. Select the QR code or the whole screen via Windows Snipping Tool.
-3. The content of the QR code is copied to the clipboard and displayed in a notification. For some QR codes the notification will display a custom action like "Follow Link" or "Connect to Network" (see [Screenshot Collection](.\#Screenshots))
+- Select the QR code or the whole screen via Windows Snipping Tool.
+- The content of the QR code is copied to the clipboard and displayed in a notification.
+
+   > For some QR codes the notification will display a custom action like "Follow Link" or "Connect" (see [Screenshot Collection](.\#Screenshots))
 
 ## Screenshots
 
