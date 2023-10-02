@@ -13,6 +13,7 @@
     <a href="https://github.com/ottozumkeller/QR-Code-Reader/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Stars&amp;logo=GitHub&amp;color=e3b341"></a>
   </p>
 </p>
+<br>
 
 ## Features
 
@@ -47,7 +48,7 @@
    - A click on the system tray icon
 
 2. Select the QR code or the whole screen via Windows Snipping Tool.
-3. The content of the QR code is copied to the clipboard and displayed in a notification (if it is a valid URL, it can be opened directly via the integrated button)
+3. The content of the QR code is copied to the clipboard and displayed in a notification. For some QR codes the notification will display a custom action like "Follow Link" or "Connect to Network" (see [Screenshot Collection](.\#Screenshots))
 
 ## Screenshots
 
