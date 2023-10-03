@@ -1,4 +1,4 @@
-<br>
+ bn  <br>
 <p align="center">
   <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo.png" height="150px"/><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 align="center">QR-Code Reader</h1>
@@ -13,19 +13,25 @@
     <a href="https://github.com/ottozumkeller/QR-Code-Reader/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Stars&amp;logo=GitHub&amp;color=e3b341"></a>
   </p>
 </p>
+<br>
 
 ## Features
 
 - Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.
 - Copy the content of QR codes to the clipboard and display a notification.
-- Directly open Weblinks and other URI's in your default browser or specified programm via a notification.
-- Directly connect to WiFi-Networks via a notification. *(Currently only supports WPA2-Personal authenticated networks)*
+- Directly open Weblinks in your default browser via a notification.
+- Directly connect to WiFi-Networks via a notification.
+
+  > Currently only supports WPA2-Personal authenticated networks
   
 ## System Requirements
 
-- Windows 10 Version 2004 (20H1) or later (Check your Version under <a href="https://tinyurl.com/4pxm8wes">`Settings > System > Info`</a>) <a href=".\#Notes"><sup>*</sup></a>
+- Windows 10 Version 2004 (20H1) or later
+  
+  > Check your Version under [Settings > System > About](https://tinyurl.com/4pxm8wes) <sup>[*](.\#Notes)</sup>
 - Windows Snipping Tool must be installed
-- *(Recommended)* For the fastest possible response, disable notifications for Snipping Tool<br>under <a href="https://tinyurl.com/35mdtcsk">`Settings > System > Notifications`</a> <a href=".\#Notes"><sup>*</sup></a>
+  
+  > It is recommended to turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/35mdtcsk) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
 
 ## Installation
 
@@ -41,24 +47,26 @@
 
 ## Usage
 
-1. After the Installation open QR-Code Reader from:
+- After the Installation open QR-Code Reader from:
    - The start menu
    - The key combination <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd>
    - A click on the system tray icon
 
-2. Select the QR code or the whole screen via Windows Snipping Tool.
-3. The content of the QR code is copied to the clipboard and displayed in a notification (if it is a valid URL, it can be opened directly via the integrated button)
+- Select the QR code or the whole screen via Windows Snipping Tool.
+- The content of the QR code is copied to the clipboard and displayed in a notification.
+
+   > For some QR codes the notification will display a custom action like "Follow Link" or "Connect" (see [Screenshot Collection](.\#Screenshots))
 
 ## Screenshots
 
 <details>
   <summary>&nbsp;Show Screenshot Collection</summary><br>
-    <p float="left">
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1.png" width="33%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_2.png" width="33%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_3.png" width="33%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_4.png" width="33%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_5.png" width="33%" />
+    <p float="left" width="100%">
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1.png" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_2.png" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_3.png" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_4.png" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_5.png" width="49.5%" />
     </p>
 </details>
 
