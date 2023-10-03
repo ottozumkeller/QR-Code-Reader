@@ -47,7 +47,7 @@
 
 ## Usage
 
-- After the Installation open QR-Code Reader from:
+- Open QR-Code Reader from:
    - The start menu
    - The key combination <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd>
    - A click on the system tray icon
