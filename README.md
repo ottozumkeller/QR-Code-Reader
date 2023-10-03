@@ -1,4 +1,4 @@
-<br>
+ bn  <br>
 <p align="center">
   <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo.png" height="150px"/><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 align="center">QR-Code Reader</h1>
@@ -28,7 +28,7 @@
 
 - Windows 10 Version 2004 (20H1) or later
   
-  > Check your Version under [Settings > System > Info](https://tinyurl.com/4pxm8wes) <sup>[*](.\#Notes)</sup>
+  > Check your Version under [Settings > System > About](https://tinyurl.com/4pxm8wes) <sup>[*](.\#Notes)</sup>
 - Windows Snipping Tool must be installed
   
   > It is recommended to turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/35mdtcsk) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
