@@ -6,4 +6,5 @@ read.exe
 key.exe
 actions.exe
 test.bat
+winget_update.bat
 
