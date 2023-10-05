@@ -50,49 +50,24 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
     Remove-Item -Path $Name -ErrorAction SilentlyContinue
     Get-ChildItem "$([System.Environment]::GetFolderPath("MyPictures"))\Screenshots" -Recurse | Where-Object CreationTime -gt (Get-Date).AddSeconds(-5) | Remove-Item
 
-    $AppId = "Otto Zumkeller.QR-Code Reader"
+    $AppId = "OttoZumkeller.QR-CodeReader"
     $Open = ""
     $Array = ""
     $Visual_Title_String = $Title_String
     $Status = ""
 
-    Try {
-        $Request = [System.Net.WebRequest]::Create($Title_String)
-        $Request.Method = 'HEAD'
-        $Response = $Request.GetResponse()
-        $Status = $Response.StatusCode
-        $Response.Close()
-    } Catch [System.Exception] {}
-
-        if (($Status -eq 'OK') -Or ($Title_String -Like "wifi:*") ) {
-            if ($Status -Eq 'OK') {
-                $Script:Open ='<action content="Follow Link" activationType="protocol" arguments="' + $Title_String + '"/>'
-            }
-
-            if ($Title_String -Like "wifi:*") {
-                $Script:Array = $Title_String.Split(":").Split(";")
-                $Script:Visual_Title_String = "WiFi QR-Code detected!"
-                $Script:Info_String = "Network Name: $($Array[[Array]::IndexOf($Array, "S") + 1])"
-                $Script:Open ='<action content="Connect" activationType="protocol" arguments="' + $Title_String + '"/>'
-            }
-            
+    If ($Title_String -Like "*://*.*") {
+        $Script:Open ='<action content="Follow Link" activationType="protocol" arguments="' + $Title_String + '"/>'
+    } Else {
+        If ($Title_String -Like "wifi:*") {
+            $Script:Array = $Title_String.Split(":").Split(";")
+            $Script:Visual_Title_String = "WiFi QR-Code detected!"
+            $Script:Info_String = "Network Name: $($Array[[Array]::IndexOf($Array, "S") + 1])"
+            $Script:Open ='<action content="Connect" activationType="protocol" arguments="' + $Title_String + '"/>'
         }
+    }
 
-    $Template =
-@"
-    <toast>
-        <visual>
-            <binding template="ToastGeneric">
-                <text id="1">$($Visual_Title_String)</text>
-                <text id="2">$($Info_String)</text>
-            </binding>
-        </visual>
-        <actions>
-            $($Open)
-            <action activationType="system" arguments="dismiss" content=""/>
-        </actions>
-    </toast>
-"@
+    $Template = "<toast><visual><binding template='ToastGeneric'><text id='1'>$($Visual_Title_String)</text><text id='2'>$($Info_String)</text></binding></visual><actions>$($Open)<action activationType='system' arguments='dismiss' content='' /></actions></toast>"
 
     [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
     [Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
