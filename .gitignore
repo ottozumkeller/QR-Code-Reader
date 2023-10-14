@@ -8,4 +8,6 @@ actions.exe
 test.bat
 winget_*.bat
 *.txt
+wifi_info.ps1
+wifi.ps1
 
