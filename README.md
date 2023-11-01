@@ -22,7 +22,7 @@
 - Directly open Weblinks in your default browser via a notification.
 - Directly connect to WiFi-Networks via a notification.
 
-  > Currently only supports WPA2-Personal authenticated networks
+  > WiFi-Support is currently experimental; if you notice any bugs file an issue [here](.\issues)
   
 ## System Requirements
 
