@@ -22,7 +22,7 @@
 - Directly open Weblinks in your default browser via a notification.
 - Directly connect to WiFi-Networks via a notification.
 
-  > WiFi-Support is currently experimental; if you notice any bugs file an issue [here](https://github.com/ottozumkeller/QR-Code-Reader/issues)
+  > WiFi-Support is currently experimental; if you notice any bugs report them under [Issues](https://github.com/ottozumkeller/QR-Code-Reader/issues)
   
 ## System Requirements
 
