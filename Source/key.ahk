@@ -2,7 +2,7 @@
 
 ;@Ahk2Exe-SetName QR-Code Reader Hotkey Listener
 ;@Ahk2Exe-SetDescription QR-Code Reader Hotkey Listener
-;@Ahk2Exe-SetVersion 1.0.1
+;@Ahk2Exe-SetVersion 1.0.2
 ;@Ahk2Exe-AddResource qr_reader.ico, 160  ; Replaces 'H on blue'
 ;@Ahk2Exe-AddResource qr_reader.ico, 206  ; Replaces 'S on green'
 ;@Ahk2Exe-AddResource qr_reader.ico, 207  ; Replaces 'H on red'
