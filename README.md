@@ -15,7 +15,7 @@
 </p>
 <br>
 
-## Features
+## :rocket: Features
 
 - Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.
 - Copy the content of QR codes to the clipboard and display a notification.
@@ -24,7 +24,7 @@
 
   > WiFi-Support is currently experimental; if you notice any bugs report them under [Issues](https://github.com/ottozumkeller/QR-Code-Reader/issues)
   
-## System Requirements
+## :computer: System Requirements
 
 - Windows 10 Version 2004 (20H1) or later
   
@@ -33,7 +33,7 @@
   
   > It is recommended to turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/35mdtcsk) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
 
-## Installation
+## :cd: Installation
 
 - You can install QR-Code Reader from the following sources<br>
   #### GitHub
@@ -45,7 +45,7 @@
   winget install OttoZumkeller.QR-CodeReader
   ```
 
-## Usage
+## :book: Usage
 
 - Open QR-Code Reader from:
    - The start menu
@@ -57,7 +57,7 @@
 
    > For some QR codes the notification will display a custom action like "Follow Link" or "Connect" (see [Screenshot Collection](.\#Screenshots))
 
-## Screenshots
+## :camera_flash: Screenshots
 
 <details>
   <summary>&nbsp;Show Screenshot Collection</summary><br>
@@ -70,6 +70,6 @@
     </p>
 </details>
 
-## Notes
+## :memo: Notes
 
 \* Links with an asterisk have been shortend with [tinyurl.com](https://tinyurl.com/app) for greater convenience, because Github doesn't allow "ms-settings://" links ☹️.
