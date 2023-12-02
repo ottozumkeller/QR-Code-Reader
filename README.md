@@ -17,9 +17,9 @@
 
 ## :rocket: Features
 
-- Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.
-- Copy the content of QR codes to the clipboard and display a notification.
-- Directly open Weblinks in your default browser via a notification.
+- Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.<br>
+- Copy the content of QR codes to the clipboard and display a notification.<br>
+- Directly open Weblinks in your default browser via a notification.<br>
 - Directly connect to WiFi-Networks via a notification.
 
   > WiFi-Support is currently experimental; if you notice any bugs report them under [Issues](https://github.com/ottozumkeller/QR-Code-Reader/issues)
@@ -35,15 +35,14 @@
 
 ## :cd: Installation
 
-- You can install QR-Code Reader from the following sources<br>
+- You can install QR-Code Reader from the following sources:<br>
   #### GitHub
-  Download the .msi package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)<br>
+    - Download the .msi package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)<br>
   #### WinGet
-  Run the following command in a Cmd, PowerShell or Terminal window
-  
-  ```cmd
-  winget install OttoZumkeller.QR-CodeReader
-  ```
+    - Run the following command in a Command Line, PowerShell or Terminal window
+      
+      ```cmd
+      winget install OttoZumkeller.QR-CodeReader
 
 ## :book: Usage
 
