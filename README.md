@@ -19,7 +19,7 @@
 
 - Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.<br>
 - Copy the content of QR codes to the clipboard and display a notification.<br>
-- Directly open Weblinks in your default browser via a notification.<br>
+- Directly open weblinks in your default browser via a notification.<br>
 - Directly connect to WiFi-Networks via a notification.
 
   > WiFi-Support is currently experimental; if you notice any bugs report them under [Issues](https://github.com/ottozumkeller/QR-Code-Reader/issues)
