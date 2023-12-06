@@ -2,7 +2,16 @@ Start-Process "ms-screenclip:"
 
 $Entry = Get-Clipboard -Raw
 Start-Sleep -Seconds 1.0
-Wait-Process "ScreenClippingHost"
+$ScreenClippingHost = (Get-Process | Where-Object { $_.Name -eq "ScrennClippingHost" }).Count -gt 0
+$SnippingTool = (Get-Process | Where-Object { $_.Name -eq "SnippingTool" }).Count -gt 0
+
+if ($ScreenClippingHost) {
+    Wait-Process "ScreenClippingHost"
+} else {
+    if ($SnippingTool) {
+        Wait-Process "SnippingTool"
+    }
+}
 
 $Name = $ENV:Temp + "\temp.png"
 
@@ -90,4 +99,7 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
     $Toast = New-Object Windows.UI.Notifications.ToastNotification $Content
     [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($AppId).Show($Toast)
 }
-Start-Process -FilePath ".\key.exe"
+
+if ((Get-Process | Where-Object { $_.Name -eq "key" }).Count -gt 0) {
+    Start-Process -FilePath ".\key.exe"
+}
