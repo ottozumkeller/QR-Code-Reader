@@ -1,18 +1,19 @@
 <br>
-<p align="center">
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo.png" height="150px"/><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1 align="center">QR-Code Reader</h1>
-  <p align="center">
-    QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly<br>
-    from your computer screen. This app is made possible by Windows Snipping Tool, <a href="https://github.com/mchehab/zbar">ZBar</a> and <a href="https://github.com/AutoHotkey/AutoHotkey">AutoHotkey</a>.
-    <br><br>
-    <a href="https://github.com/ottozumkeller/QR-Code-Reader/releases"><img alt="Current Version" src="https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Version&amp;logo=GitHub&amp;color=2ea043"></a>
-    &nbsp;
-    <a href="https://github.com/ottozumkeller/QR-Code-Reader/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/ottozumkeller/QR-Code-Reader/total?style=for-the-badge&amp;label=Downloads&amp;logo=GitHub&amp;color=2f81f7"></a>
-    &nbsp;
-    <a href="https://github.com/ottozumkeller/QR-Code-Reader/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Stars&amp;logo=GitHub&amp;color=e3b341"></a>
-  </p>
-</p>
+<div align="center">
+  
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_dark.png#gh-dark-mode-only" height="150px"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_light.png#gh-light-mode-only" height="150px"/>
+  <br><br>
+  
+  # QR-Code Reader
+  QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly<br>
+  from your computer screen. This app is made possible by Windows Snipping Tool, [ZBar](https://github.com/mchehab/zbar) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
+  <br><br><br>
+  [![](https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Version&amp;logo=GitHub&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
+  [![](https://img.shields.io/github/downloads/ottozumkeller/QR-Code-Reader/total?style=for-the-badge&amp;label=Downloads&amp;logo=GitHub&amp;color=2f81f7)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
+  [![](https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Stars&amp;logo=GitHub&amp;color=e3b341)](https://github.com/ottozumkeller/QR-Code-Reader/stargazers)
+    
+</div>
 <br>
 
 ## Features
@@ -59,6 +60,7 @@
 ## Screenshots
 
 <details>
+  
   <summary>&nbsp;Show Screenshot Collection</summary><br>
     <p float="left" width="100%">
       <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1.png" width="49.5%" />
@@ -67,21 +69,19 @@
       <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_4.png" width="49.5%" />
       <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_5.png" width="49.5%" />
     </p>
+    
 </details>
 
 ## Roadmap
-- Version 1.0.3
-  
-  > Figure out the best way to detect the successful exit of SnippingTool in Windows 11 23H2 (currently buggy?)
   
 - Version 1.0.4+
 
-  > Improve WiFi-QR-code support (map Authentication mode and Encryption type correctly)
+  > Improve WiFi QR code support (map Authentication mode and Encryption type correctly)
   
   > Add settings page for keyboard shortcut, etc.
   
   > Rewrite scripts in C# with WinUI3
 
-## Notes
+#
 
-\* Links with an asterisk have been shortend with [tinyurl.com](https://tinyurl.com/app) for greater convenience, because Github doesn't allow "ms-settings://" links ☹️.
+  <sub>* Links with an asterisk have been shortend with [tinyurl.com](https://tinyurl.com/app) for greater convenience, because Github doesn't allow "ms-settings://" links ☹️</sub>
