@@ -29,10 +29,10 @@
 
 - Windows 10 Version 2004 (20H1) or later
   
-  > Check your Version under [Settings > System > About](https://tinyurl.com/4pxm8wes) <sup>[*](.\#Notes)</sup>
+  > Check your Version under [Settings > System > About](https://tinyurl.com/4xscs5wb) <sup>[*](.\#Notes)</sup>
 - Windows Snipping Tool must be installed
   
-  > It is recommended to turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/35mdtcsk) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
+  > It is recommended to turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/yff2j59d) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
 
 ## Installation
 
