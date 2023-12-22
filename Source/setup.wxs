@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define version = "1.0.2"?>
+<?define version = "1.0.3"?>
 <?define upgradecode = "8633b604-cbb1-4f1a-988a-2f038d70ddbc"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
@@ -62,6 +62,12 @@
             <Component Id="zlib1.dll" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
                 <File Id="fil8D15B7762EC8AE317B977ABC90F08443" KeyPath="yes" Source="..\Source\zlib1.dll" />
             </Component>
+            <Component Id="qr_reader_light.ico" Guid="4D44ACCD-1C75-4625-89EA-AF234B4678E7">
+                <File Id="filEEF040AE1C1897E0FB809EB37262FCF1" KeyPath="yes" Source="..\Source\qr_reader_light.ico" />
+            </Component>
+            <Component Id="qr_reader_dark.ico" Guid="5D5D52A4-4025-4014-AED8-D325E826790D">
+                <File Id="filCDF040BE1C1537E0FB809EB57262CDFF" KeyPath="yes" Source="..\Source\qr_reader_dark.ico" />
+            </Component>
         </DirectoryRef>
 
         <Icon Id="Icon" SourceFile="..\Source\read.exe" />
@@ -101,6 +107,8 @@
             <ComponentRef Id="zbarimg.exe" />
             <ComponentRef Id="zlib1.dll" />
             <ComponentRef Id="libiconv_2.dll" />
+            <ComponentRef Id="qr_reader_light.ico" />
+            <ComponentRef Id="qr_reader_dark.ico" />
         </Feature>
 
         <CustomAction Id="start_exe" Return="asyncNoWait" FileKey="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" ExeCommand="" />

@@ -36,6 +36,6 @@ $Xml = "
         </MacRandomization>
     </WLANProfile>"
 
-# Set-Content -Path "$ENV:Temp\profile.xml" -Value $Xml
-# netsh wlan add profile filename="$ENV:Temp\profile.xml" user=all
-# Remove-Item -Path "$ENV:Temp\profile.xml"
+Set-Content -Path "$ENV:Temp\profile.xml" -Value $Xml
+netsh wlan add profile filename="$ENV:Temp\profile.xml" user=all
+Remove-Item -Path "$ENV:Temp\profile.xml"

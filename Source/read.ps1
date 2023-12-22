@@ -1,17 +1,34 @@
+$Entry = Get-Clipboard -Raw
+
 Start-Process "ms-screenclip:"
 
-$Entry = Get-Clipboard -Raw
-Start-Sleep -Seconds 1.0
-$ScreenClippingHost = (Get-Process | Where-Object { $_.Name -eq "ScrennClippingHost" }).Count -gt 0
-$SnippingTool = (Get-Process | Where-Object { $_.Name -eq "SnippingTool" }).Count -gt 0
 
-if ($ScreenClippingHost) {
-    Wait-Process "ScreenClippingHost"
-} else {
-    if ($SnippingTool) {
-        Wait-Process "SnippingTool"
-    }
+Add-Type @"
+using System;
+using System.Runtime.InteropServices;
+
+public class WinApi {
+    [DllImport("user32.dll")]
+    public static extern short GetAsyncKeyState(UInt16 virtualKeyCode);
 }
+"@
+
+$Exit = $True
+while ($Exit) {
+    $State = [WinApi]::GetAsyncKeyState(1)
+    if ($State -eq -32768) {
+        while ($Exit) {
+            $State = [WinApi]::GetAsyncKeyState(1)
+            if ($State -eq 0) {
+                $Exit = $False
+            }
+            Start-Sleep -Seconds 0.5
+        }
+    }
+    Start-Sleep -Seconds 0.5
+}
+
+Start-Sleep -Seconds 1.0
 
 $Name = $ENV:Temp + "\temp.png"
 
@@ -56,14 +73,13 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
         $Script:Info_String = "Please select a complete QR-Code"
         Set-Clipboard -Value $Entry
     }
-    Remove-Item -Path $Name -ErrorAction SilentlyContinue
+    Remove-Item -Path $Name -Force
     Get-ChildItem "$([System.Environment]::GetFolderPath("MyPictures"))\Screenshots" -Recurse | Where-Object CreationTime -gt (Get-Date).AddSeconds(-5) | Remove-Item
 
     $AppId = "OttoZumkeller.QR-CodeReader"
     $Open = ""
     $Array = ""
     $Visual_Title_String = $Title_String
-    $Status = ""
 
     $Schemes = "aaa", "aaas", "about", "acap", "acct", "acd", "acr", "adiumxtra", "adt", "afp", "afs", "aim", "amss", "android", "appdata", "apt", "ar", "ark", "at", "attachment", "aw", "barion", "bb", "beshare", "bitcoin", "bitcoincash", "blob", "bolo", "browserext", "cabal", "calculator", "callto", "cap", "cast", "casts", "chrome", "chrome-extension", "cid", "coap", "coap+tcp", "coap+ws", "coaps", "coaps+tcp", "coaps+ws", "com-eventbrite-attendee", "content", "content-type", "crid", "cstr", "cvs", "dab", "dat", "data", "dav", "dhttp", "diaspora", "dict", "did", "dis", "dlna-playcontainer", "dlna-playsingle", "dns", "dntp", "doi", "dpp", "drm", "drop", "dtmi", "dtn", "dvb", "dvx", "dweb", "ed2k", "eid", "elsi", "embedded", "ens", "ethereum", "example", "facetime", "fax", "feed", "feedready", "fido", "file", "filesystem", "finger", "first-run-pen-experience", "fish", "fm", "ftp", "fuchsia-pkg", "geo", "gg", "git", "gitoid", "gizmoproject", "go", "gopher", "graph", "grd", "gtalk", "h323", "ham", "hcap", "hcp", "http", "https", "hxxp", "hxxps", "hydrazone", "hyper", "iax", "icap", "icon", "im", "imap", "info", "iotdisco", "ipfs", "ipn", "ipns", "ipp", "ipps", "irc", "irc6", "ircs", "iris", "iris.beep", "iris.lwz", "iris.xpc", "iris.xpcs", "isostore", "itms", "jabber", "jar", "jms", "keyparc", "lastfm", "lbry", "ldap", "ldaps", "leaptofrogans", "lid", "lorawan", "lpa", "lvlt", "magnet", "mailserver", "mailto", "maps", "market", "matrix", "message", "microsoft.windows.camera", "microsoft.windows.camera.multipicker prov/microsoft.windows.camera.multipicker microsoft.windows.camera.multipicker Provisional -", "microsoft.windows.camera.picker", "mid", "mms", "modem", "mongodb", "moz", "ms-access", "ms-appinstaller", "ms-browser-extension", "ms-calculator", "ms-drive-to", "ms-enrollment", "ms-excel", "ms-eyecontrolspeech", "ms-gamebarservices", "ms-gamingoverlay", "ms-getoffice", "ms-help", "ms-infopath", "ms-inputapp", "ms-launchremotedesktop", "ms-lockscreencomponent-config", "ms-media-stream-id", "ms-meetnow", "ms-mixedrealitycapture", "ms-mobileplans", "ms-newsandinterests", "ms-officeapp", "ms-people", "ms-project", "ms-powerpoint", "ms-publisher", "ms-remotedesktop", "ms-remotedesktop-launch", "ms-restoretabcompanion", "ms-screenclip", "ms-screensketch", "ms-search", "ms-search-repair", "ms-secondary-screen-controller", "ms-secondary-screen-setup", "ms-settings", "ms-settings-airplanemode", "ms-settings-bluetooth", "ms-settings-camera", "ms-settings-cellular", "ms-settings-cloudstorage", "ms-settings-connectabledevices", "ms-settings-displays-topology", "ms-settings-emailandaccounts", "ms-settings-language", "ms-settings-location", "ms-settings-lock", "ms-settings-nfctransactions", "ms-settings-notifications", "ms-settings-power", "ms-settings-privacy", "ms-settings-proximity", "ms-settings-screenrotation", "ms-settings-wifi", "ms-settings-workplace", "ms-spd", "ms-stickers", "ms-sttoverlay", "ms-transit-to", "ms-useractivityset", "ms-virtualtouchpad", "ms-visio", "ms-walk-to", "ms-whiteboard", "ms-whiteboard-cmd", "ms-word", "msnim", "msrp", "msrps", "mss", "mt", "mtqp", "mumble", "mupdate", "mvn", "news", "nfs", "ni", "nih", "nntp", "notes", "num", "ocf", "oid", "onenote", "onenote-cmd", "opaquelocktoken", "openid", "openpgp4fpr", "otpauth", "p1", "pack", "palm", "paparazzi", "payment", "payto", "pkcs11", "platform", "pop", "pres", "prospero", "proxy", "pwid", "psyc", "pttp", "qb", "query", "quic-transport", "redis", "rediss", "reload", "res", "resource", "rmi", "rsync", "rtmfp", "rtmp", "rtsp", "rtsps", "rtspu", "sarif", "secondlife", "secret-token", "service", "session", "sftp", "sgn", "shc", "sieve", "simpleledger", "simplex", "sip", "sips", "skype", "smb", "smp", "sms", "smtp", "snews", "snmp", "soap.beep", "soap.beeps", "soldat", "spiffe", "spotify", "ssb", "ssh", "starknet", "steam", "stun", "stuns", "submit", "svn", "swh", "swid", "swidpath", "tag", "taler", "teamspeak", "tel", "teliaeid", "telnet", "tftp", "things", "thismessage", "tip", "tn3270", "tool", "turn", "turns", "tv", "udp", "unreal", "upt", "urn", "ut2004", "uuid-in-package", "v-event", "vemmi", "ventrilo", "ves", "videotex", "vnc", "view-source", "vscode", "vscode-insiders", "vsls", "w3", "wais", "web3", "wcr", "webcal", "web+ap", "wifi", "wpid", "ws", "wss", "wtai", "wyciwyg", "xcon", "xcon-userid", "xfire", "xmlrpc.beep", "xmlrpc.beeps", "xmpp", "xri", "ymsgr", "z39.50", "z39.50r", "z39.50s"
 
@@ -100,6 +116,6 @@ if ([Windows.Forms.Clipboard]::ContainsImage()) {
     [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($AppId).Show($Toast)
 }
 
-if ((Get-Process | Where-Object { $_.Name -eq "key" }).Count -gt 0) {
+if ((Get-Process | Where-Object { $_.Name -eq "key" }).Count -eq 0) {
     Start-Process -FilePath ".\key.exe"
 }
