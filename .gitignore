@@ -1,14 +1,9 @@
-manifests
+*.txt
+build_ahk.bat
 *.msi
 setup.wixobj
 setup.wixpdb
-read.exe
-key.exe
-actions.exe
+*.xcf
 test.bat
-winget_*.bat
-*.txt
-wifi_info.ps1
-wifi.ps1
-social_banner.xcf
+*.exe
 

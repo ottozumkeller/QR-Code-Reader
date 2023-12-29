@@ -23,14 +23,11 @@
         </Directory>
 
         <DirectoryRef Id="RootFolder">
-            <Component Id="read.exe" Guid="CFB191CA-2B70-4022-A3C5-6A1E44EF0A7A">
-                <File Id="filDDF040EE1C1877E0FB809EB57262CDFF" KeyPath="yes" Source="..\Source\read.exe" />
+            <Component Id="reader.exe" Guid="4DA623FE-6FBE-4893-8059-85F35FC355A7">
+                <File Id="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" KeyPath="yes" Source="..\Source\reader.exe" />
             </Component>
-            <Component Id="key.exe" Guid="4DA623FE-6FBE-4893-8059-85F35FC355A7">
-                <File Id="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" KeyPath="yes" Source="..\Source\key.exe" />
-            </Component>
-            <Component Id="actions.exe" Guid="853F84BB-2FB2-46BD-A759-0EA2E69F0255">
-                <File Id="fil9BCA8C6EB7A4B3CDC338CA8049167C7C" KeyPath="yes" Source="..\Source\actions.exe" />
+            <Component Id="module.psm1" Guid="4DC623FE-6FBE-4893-8059-85F35FC355A7">
+                <File Id="fil8CCA8C6EB7A4B3CAB338CA8049167C7C" KeyPath="yes" Source="..\Source\module.psm1" />
             </Component>
             <Component Id="libiconv_2.dll" Guid="382DA31B-4425-418F-89FF-9D1C3CB69B8B">
                 <File Id="fil7003744A6C7BB59233C22A72718A3DC4" KeyPath="yes" Source="..\Source\libiconv-2.dll" />
@@ -62,22 +59,17 @@
             <Component Id="zlib1.dll" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
                 <File Id="fil8D15B7762EC8AE317B977ABC90F08443" KeyPath="yes" Source="..\Source\zlib1.dll" />
             </Component>
-            <Component Id="qr_reader_light.ico" Guid="4D44ACCD-1C75-4625-89EA-AF234B4678E7">
-                <File Id="filEEF040AE1C1897E0FB809EB37262FCF1" KeyPath="yes" Source="..\Source\qr_reader_light.ico" />
-            </Component>
-            <Component Id="qr_reader_dark.ico" Guid="5D5D52A4-4025-4014-AED8-D325E826790D">
-                <File Id="filCDF040BE1C1537E0FB809EB57262CDFF" KeyPath="yes" Source="..\Source\qr_reader_dark.ico" />
-            </Component>
         </DirectoryRef>
 
-        <Icon Id="Icon" SourceFile="..\Source\read.exe" />
+        <Icon Id="Icon" SourceFile="..\Source\reader.exe" />
+        <Property Id="ARPPRODUCTICON" Value="Icon" />
 
         <DirectoryRef Id="ApplicationProgramsFolder">
             <Component Id="ApplicationShortcut" Guid="ca561415-35ac-46ea-ae4d-099e4b28bc30">
                 <Shortcut Id="ApplicationStartMenuShortcut" 
                           Name="QR-Code Reader"
                           Description="QR-Code Reader using Windows Snipping Tool, ZBar Image and AutoHotkey"
-                          Target="[ProgramFilesFolder]QR-Code Reader\read.exe"
+                          Target="[ProgramFilesFolder]QR-Code Reader\reader.exe"
                           WorkingDirectory="RootFolder"
                           Icon="Icon">
                     <ShortcutProperty Key="System.AppUserModel.ID" Value="OttoZumkeller.QR-CodeReader" />
@@ -86,17 +78,17 @@
                 <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\QR-Code Reader" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\OttoZumkeller.QR-CodeReader" Name="ShowInActionCenter" Type="integer" Value="1" KeyPath="no"/>
-                <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="QR-Code Reader" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\key.exe&quot;" KeyPath="no"/>
+                <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="QR-Code Reader" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\reader.exe&quot;" KeyPath="no"/>
                 <RegistryValue Root="HKCR" Key="wifi" Name="URL Protocol" Type="string" Value="" KeyPath="no"/>
-                <RegistryValue Root="HKCR" Key="wifi\shell\open\command" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\actions.exe&quot; &quot;%1&quot;" KeyPath="no"/>
+                <RegistryValue Root="HKCR" Key="wifi\shell\open\command" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\reader.exe&quot; &quot;%1&quot;" KeyPath="no"/>
             </Component>
         </DirectoryRef>
 
         <Feature Id="MainApplication" Title="Main Application" Level="1">
             <ComponentRef Id="ApplicationShortcut" />
-            <ComponentRef Id="read.exe" />
-            <ComponentRef Id="key.exe" />
-            <ComponentRef Id="actions.exe" />
+            <ComponentRef Id="reader.exe" />
+            <ComponentRef Id="module.psm1" />
+            <ComponentRef Id="zbarimg.exe" />
             <ComponentRef Id="libjpeg_7.dll" />
             <ComponentRef Id="libMagickCore_2.dll" />
             <ComponentRef Id="libMagickWand_2.dll" />
@@ -104,11 +96,8 @@
             <ComponentRef Id="libtiff_3.dll" />
             <ComponentRef Id="libxml2_2.dll" />
             <ComponentRef Id="libzbar_0.dll" />
-            <ComponentRef Id="zbarimg.exe" />
             <ComponentRef Id="zlib1.dll" />
             <ComponentRef Id="libiconv_2.dll" />
-            <ComponentRef Id="qr_reader_light.ico" />
-            <ComponentRef Id="qr_reader_dark.ico" />
         </Feature>
 
         <CustomAction Id="start_exe" Return="asyncNoWait" FileKey="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" ExeCommand="" />
