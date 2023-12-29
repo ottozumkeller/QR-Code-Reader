@@ -74,12 +74,12 @@
 
 ## Roadmap
   
-  - #### Version 1.0.4+
+  - #### Version 1.0.3
     - [ ] Improve WiFi QR code support (map Authentication mode and Encryption type correctly)
+   
+  - #### Version 1.0.4+
   
     - [ ] Add settings page for keyboard shortcut, etc.
-  
-    - [ ] Rewrite scripts in C# with WinUI3
 
 #
 
