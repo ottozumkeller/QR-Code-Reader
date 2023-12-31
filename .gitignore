@@ -1,8 +1,10 @@
+.vscode
 *.txt
+*.png
 build_ahk.bat
 *.msi
-setup.wixobj
-setup.wixpdb
+*.wixobj
+*.wixpdb
 *.xcf
 test.bat
 reader.exe

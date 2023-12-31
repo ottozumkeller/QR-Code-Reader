@@ -1,4 +1,3 @@
-
 @echo off
 
 AutoHotkey\ahk2exe.exe /in "..\Source\reader.ahk" /base "AutoHotkey\AutoHotkey64.exe" /silent /compress 2

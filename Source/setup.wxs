@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define version = "1.0.3"?>
+<?define version = "1.1.0"?>
 <?define upgradecode = "8633b604-cbb1-4f1a-988a-2f038d70ddbc"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
@@ -29,35 +29,8 @@
             <Component Id="module.psm1" Guid="4DC623FE-6FBE-4893-8059-85F35FC355A7">
                 <File Id="fil8CCA8C6EB7A4B3CAB338CA8049167C7C" KeyPath="yes" Source="..\Source\module.psm1" />
             </Component>
-            <Component Id="libiconv_2.dll" Guid="382DA31B-4425-418F-89FF-9D1C3CB69B8B">
-                <File Id="fil7003744A6C7BB59233C22A72718A3DC4" KeyPath="yes" Source="..\Source\libiconv-2.dll" />
-            </Component>
-            <Component Id="libjpeg_7.dll" Guid="DFE139DC-EFB1-4B51-B33D-DC0DB3A4D16D">
-                <File Id="fil419AF114066ABFE5B0C2442E9C5ABDEF" KeyPath="yes" Source="..\Source\libjpeg-7.dll" />
-            </Component>
-            <Component Id="libMagickCore_2.dll" Guid="D33B214D-A6F6-49D3-9E8B-33D00BA478C4">
-                <File Id="fil11D427F33F304D19C6886D4F2CF77E22" KeyPath="yes" Source="..\Source\libMagickCore-2.dll" />
-            </Component>
-            <Component Id="libMagickWand_2.dll" Guid="04D7746D-6B1C-48F3-B6B9-A44DC32AC0C2">
-                <File Id="filD201C96D6E89854667DC807C0CCFC9FC" KeyPath="yes" Source="..\Source\libMagickWand-2.dll" />
-            </Component>
-            <Component Id="libpng12_0.dll" Guid="5011A281-6471-462D-9CAF-7D65FAE4F6B4">
-                <File Id="fil58739633BCBF850E59DCF9C5CD32A849" KeyPath="yes" Source="..\Source\libpng12-0.dll" />
-            </Component>
-            <Component Id="libtiff_3.dll" Guid="5F4E2011-51C2-4A32-AE6E-2A1A7C9B5FAE">
-                <File Id="fil4ECAA94A3BE89F5B267D1DBB0ABFCD9B" KeyPath="yes" Source="..\Source\libtiff-3.dll" />
-            </Component>
-            <Component Id="libxml2_2.dll" Guid="2E5E6D8A-4947-490A-AECF-B3067C4CEC9A">
-                <File Id="filAFAF2D01E387688FFF267D4FE85F89B0" KeyPath="yes" Source="..\Source\libxml2-2.dll" />
-            </Component>
-            <Component Id="libzbar_0.dll" Guid="F6404EA9-ADBC-445A-A4BE-4562799B0E4A">
-                <File Id="fil76823A781D2559C67493F73AD04D65A5" KeyPath="yes" Source="..\Source\libzbar-0.dll" />
-            </Component>
-            <Component Id="zbarimg.exe" Guid="53C85BFC-DFBD-49D3-BCCA-BB6E018AC385">
-                <File Id="filFF9F7ACD3B19FFCCCB8F07366F8D706E" KeyPath="yes" Source="..\Source\zbarimg.exe" />
-            </Component>
-            <Component Id="zlib1.dll" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
-                <File Id="fil8D15B7762EC8AE317B977ABC90F08443" KeyPath="yes" Source="..\Source\zlib1.dll" />
+            <Component Id="zxing.dll" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
+                <File Id="fil8D15B7762EC8AE317B977ABC90F08443" KeyPath="yes" Source="..\Source\zxing.dll" />
             </Component>
         </DirectoryRef>
 
@@ -88,16 +61,7 @@
             <ComponentRef Id="ApplicationShortcut" />
             <ComponentRef Id="reader.exe" />
             <ComponentRef Id="module.psm1" />
-            <ComponentRef Id="zbarimg.exe" />
-            <ComponentRef Id="libjpeg_7.dll" />
-            <ComponentRef Id="libMagickCore_2.dll" />
-            <ComponentRef Id="libMagickWand_2.dll" />
-            <ComponentRef Id="libpng12_0.dll" />
-            <ComponentRef Id="libtiff_3.dll" />
-            <ComponentRef Id="libxml2_2.dll" />
-            <ComponentRef Id="libzbar_0.dll" />
-            <ComponentRef Id="zlib1.dll" />
-            <ComponentRef Id="libiconv_2.dll" />
+            <ComponentRef Id="zxing.dll" />
         </Feature>
 
         <CustomAction Id="start_exe" Return="asyncNoWait" FileKey="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" ExeCommand="" />
