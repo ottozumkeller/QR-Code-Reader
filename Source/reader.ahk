@@ -89,7 +89,7 @@ Scan(*)
     WinWait("ahk_group SnippingTools")
     WinwaitClose("ahk_group SnippingTools")
 
-    Sleep(1000)
+    Sleep(500)
 
     ;Powershell:
     ;Strings need to be enclosed with '. For ", write \"
@@ -106,15 +106,7 @@ Scan(*)
             [Windows.ApplicationModel.DataTransfer.Clipboard, Windows.ApplicationModel.DataTransfer, ContentType = WindowsRuntime] | Out-Null
 
             Add-Type -AssemblyName System.Drawing
-            Add-Type -AssemblyName System.Runtime.WindowsRuntime
             Add-Type -Path "zxing.dll"
-
-            $Target = [Windows.ApplicationModel.DataTransfer.Clipboard]::GetHistoryItemsAsync()
-            $AsyncTaskGeneric = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 })[1]
-            $AsyncTask = $AsyncTaskGeneric.MakeGenericMethod([Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult])
-            $NetTask = $AsyncTask.Invoke($Null, @($Target))
-            $NetTask.Wait(-1) | Out-Null
-            $History = $NetTask.Result
             
             $Reader = New-Object -TypeName ZXing.BarcodeReader
             $Reader.Options.TryHarder = 1
@@ -124,6 +116,16 @@ Scan(*)
             $Info_String = 'was copied to clipboard'
 
             if ([Windows.ApplicationModel.DataTransfer.Clipboard]::IsHistoryEnabled()) {
+
+                Add-Type -AssemblyName System.Runtime.WindowsRuntime
+
+                $Target = [Windows.ApplicationModel.DataTransfer.Clipboard]::GetHistoryItemsAsync()
+                $AsyncTaskGeneric = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 })[1]
+                $AsyncTask = $AsyncTaskGeneric.MakeGenericMethod([Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult])
+                $NetTask = $AsyncTask.Invoke($Null, @($Target))
+                $NetTask.Wait(-1) | Out-Null
+                $History = $NetTask.Result
+
                 [Windows.ApplicationModel.DataTransfer.Clipboard]::DeleteItemFromHistory($History::Items[0]) | Out-Null
             } else {
                 if ([String]::IsNullOrEmpty($Entry)) {
@@ -173,8 +175,8 @@ Scan(*)
         }
     )"
     
-    ;RunWait("PowerShell.exe -NoExit -Command &{" . Script . "}", , "Min")
-    RunWait("PowerShell.exe -WindowStyle Hidden -Command &{" . Script . "}", , "Hide")
+    RunWait("PowerShell.exe -NoExit -Command &{" . Script . "}", , "Min")
+    ;RunWait("PowerShell.exe -WindowStyle Hidden -Command &{" . Script . "}", , "Hide")
 }
 
 Connect()
