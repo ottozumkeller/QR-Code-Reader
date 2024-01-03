@@ -8,4 +8,5 @@ build_ahk.bat
 *.xcf
 test.bat
 reader.exe
+/Test
 
