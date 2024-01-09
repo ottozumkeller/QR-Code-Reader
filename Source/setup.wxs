@@ -66,9 +66,11 @@
         </Feature>
 
         <CustomAction Id="Close" Directory="ProgramFilesFolder" Return="ignore" ExeCommand="&quot;[SystemFolder]taskkill.exe&quot; /f /im reader.exe; /im key.exe" />
+        <CustomAction Id="Start" Directory="ProgramFilesFolder" Return="ignore" ExeCommand="[ProgramFilesFolder]reader.exe" />
         
         <InstallExecuteSequence>
             <Custom Action="Close" Before="InstallValidate"></Custom>
+            <Custom Action="Start" After="InstallFinalize"></Custom>
         </InstallExecuteSequence>
     </Product>
 </Wix>
