@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define version = "1.1.0"?>
-<?define upgradecode = "8633b604-cbb1-4f1a-988a-2f038d70ddbc"?>
+<?define Version = "1.1.0"?>
+<?define UpgradeCode = "8633B604-CBB1-4F1A-988A-2F038D70DDBC"?>
 
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="*" UpgradeCode="$(var.upgradecode)" Version="$(var.version)" Language="1033" Name="QR-Code Reader" Manufacturer="Otto Zumkeller">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+    <Product Id="*" UpgradeCode="$(var.UpgradeCode)" Version="$(var.Version)" Language="1033" Name="QR-Code Reader" Manufacturer="Otto Zumkeller">
         <Package InstallerVersion="300" Compressed="yes"/>
         <Media Id="1" Cabinet="QR-Code Reader.cab" EmbedCab="yes" />
 
-        <Upgrade Id="$(var.upgradecode)">
-            <UpgradeVersion Minimum="$(var.version)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
-            <UpgradeVersion Minimum="0.0.0" Maximum="$(var.version)" IncludeMinimum="yes" IncludeMaximum="no" Property="OLDERVERSIONBEINGUPGRADED"/>	  
-        </Upgrade>
+        <MajorUpgrade DowngradeErrorMessage="A newer version of this application is already installed. If you want to downgrade, uninstall the newer version first." />
 
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="ProgramFilesFolder">
@@ -26,8 +23,8 @@
             <Component Id="reader.exe" Guid="4DA623FE-6FBE-4893-8059-85F35FC355A7">
                 <File Id="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" KeyPath="yes" Source="..\Source\reader.exe" />
             </Component>
-            <Component Id="module.psm1" Guid="4DC623FE-6FBE-4893-8059-85F35FC355A7">
-                <File Id="fil8CCA8C6EB7A4B3CAB338CA8049167C7C" KeyPath="yes" Source="..\Source\module.psm1" />
+            <Component Id="connect.exe" Guid="4DC623FE-6FBE-4893-8059-85F35FC355A7">
+                <File Id="fil8CCA8C6EB7A4B3CAB338CA8049167C7C" KeyPath="yes" Source="..\Source\connect.exe" />
             </Component>
             <Component Id="zxing.dll" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
                 <File Id="fil8D15B7762EC8AE317B977ABC90F08443" KeyPath="yes" Source="..\Source\zxing.dll" />
@@ -35,7 +32,9 @@
         </DirectoryRef>
 
         <Icon Id="Icon" SourceFile="..\Source\reader.exe" />
+
         <Property Id="ARPPRODUCTICON" Value="Icon" />
+        <Property Id="ARPHELPLINK" Value="https://github.com/ottozumkeller/QR-Code-Reader" />
 
         <DirectoryRef Id="ApplicationProgramsFolder">
             <Component Id="ApplicationShortcut" Guid="ca561415-35ac-46ea-ae4d-099e4b28bc30">
@@ -48,27 +47,28 @@
                     <ShortcutProperty Key="System.AppUserModel.ID" Value="OttoZumkeller.QR-CodeReader" />
                     <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{1dbb2394-69a0-40a4-9222-6e5e0d3e3485}"></ShortcutProperty>
 		        </Shortcut>
+
                 <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\QR-Code Reader" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\OttoZumkeller.QR-CodeReader" Name="ShowInActionCenter" Type="integer" Value="1" KeyPath="no"/>
                 <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Run" Name="QR-Code Reader" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\reader.exe&quot;" KeyPath="no"/>
                 <RegistryValue Root="HKCR" Key="wifi" Name="URL Protocol" Type="string" Value="" KeyPath="no"/>
-                <RegistryValue Root="HKCR" Key="wifi\shell\open\command" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\reader.exe&quot; &quot;%1&quot;" KeyPath="no"/>
+                <RegistryValue Root="HKCR" Key="wifi\shell\open\command" Type="string" Value="&quot;[ProgramFilesFolder]QR-Code Reader\connect.exe&quot; &quot;%1&quot;" KeyPath="no"/>
             </Component>
         </DirectoryRef>
 
         <Feature Id="MainApplication" Title="Main Application" Level="1">
             <ComponentRef Id="ApplicationShortcut" />
             <ComponentRef Id="reader.exe" />
-            <ComponentRef Id="module.psm1" />
+            <ComponentRef Id="connect.exe" />
             <ComponentRef Id="zxing.dll" />
         </Feature>
 
-        <CustomAction Id="start_exe" Return="asyncNoWait" FileKey="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" ExeCommand="" />
-
+        <CustomAction Id="Close" Directory="ProgramFilesFolder" Return="ignore" ExeCommand="&quot;[SystemFolder]taskkill.exe&quot; /f /im reader.exe; /im key.exe" />
+        
         <InstallExecuteSequence>
-            <Custom Action="start_exe" After="InstallFinalize"></Custom>
-            <RemoveExistingProducts Before="InstallInitialize" />
+            <Custom Action="Close" Before="InstallValidate"></Custom>
         </InstallExecuteSequence>
     </Product>
 </Wix>

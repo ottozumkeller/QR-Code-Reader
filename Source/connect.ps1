@@ -1,3 +1,7 @@
+$ErrorActionPreference = 'Stop'
+
+Write-Host "Test"
+
 $Script:Error_Strings = @{
     ErrorOpeningHandle = 'Error opening WiFi handle. Message {0}'
     HandleClosed = 'Handle successfully closed.'
@@ -69,7 +73,7 @@ function Connect-WiFiProfile {
 
 function Get-WiFiAvailableNetwork {
     [CmdletBinding()]
-    [OutputType([WiFi.ProfileManagement+WLAN_AVAILABLE_NETWORK])]
+    [OutputType([Custom.ProfileManagement+WLAN_AVAILABLE_NETWORK])]
     param
     (
         [Parameter()]
@@ -96,7 +100,7 @@ function Get-WiFiAvailableNetwork {
 
         foreach ($interface in $interfaceInfo) {
             $networkPointer = 0
-            $result = [WiFi.ProfileManagement]::WlanGetAvailableNetworkList(
+            $result = [Custom.ProfileManagement]::WlanGetAvailableNetworkList(
                 $clientHandle,
                 $interface.InterfaceGuid,
                 $flag,
@@ -108,11 +112,11 @@ function Get-WiFiAvailableNetwork {
                 throw $($Script:Error_Strings.ErrorGetAvailableNetworkList -f $result)
             }
 
-            $availableNetworks = [WiFi.ProfileManagement+WLAN_AVAILABLE_NETWORK_LIST]::new($networkPointer)
+            $availableNetworks = [Custom.ProfileManagement+WLAN_AVAILABLE_NETWORK_LIST]::new($networkPointer)
             $pointerCollection += $networkPointer
 
             foreach ($network in $availableNetworks.wlanAvailableNetwork) {
-                $networkResult = [WiFi.ProfileManagement+WLAN_AVAILABLE_NETWORK] $network
+                $networkResult = [Custom.ProfileManagement+WLAN_AVAILABLE_NETWORK] $network
                 $networkList += Add-DefaultProperty -InputObject $networkResult -InterfaceInfo $interface
             }
         }
@@ -227,7 +231,7 @@ function New-WiFiProfile {
 
         $profilePointer = [System.Runtime.InteropServices.Marshal]::StringToHGlobalUni($profileXML)
 
-        [WiFi.ProfileManagement]::WlanSetProfile(
+        [Custom.ProfileManagement]::WlanSetProfile(
             $clientHandle,
             [ref] $interfaceInfo.InterfaceGuid,
             $flags,
@@ -263,7 +267,7 @@ function Search-WiFiNetwork {
         $clientHandle = New-WiFiHandle
 
         foreach ($interface in $interfaceInfo) {
-            $resultCode = [WiFi.ProfileManagement]::WlanScan(
+            $resultCode = [Custom.ProfileManagement]::WlanScan(
                 $clientHandle,
                 [ref] $interface.InterfaceGuid,
                 [IntPtr]::zero,
@@ -302,7 +306,7 @@ function Add-DefaultProperty {
     Add-Member -InputObject $InputObject -MemberType 'NoteProperty' -Name 'WiFiAdapterName' -Value $InterfaceInfo.Name -Force
     Add-Member -InputObject $InputObject -MemberType 'NoteProperty' -Name 'InterfaceGuid' -Value $InterfaceInfo.InterfaceGuid -Force
 
-    if ($InputObject -is [WiFi.ProfileManagement+WLAN_CONNECTION_ATTRIBUTES]) {
+    if ($InputObject -is [Custom.ProfileManagement+WLAN_CONNECTION_ATTRIBUTES]) {
         $apMac = [System.BitConverter]::ToString($InputObject.wlanAssociationAttributes._dot11Bssid)
         Add-Member -InputObject $InputObject -MemberType 'NoteProperty' -Name 'APMacAddress' -Value $apMac -Force
     }
@@ -359,18 +363,18 @@ function Get-InterfaceInfo {
 
 function Get-WiFiInterface {
     [CmdletBinding()]
-    [OutputType([WiFi.ProfileManagement+WLAN_INTERFACE_INFO])]
+    [OutputType([Custom.ProfileManagement+WLAN_INTERFACE_INFO])]
     param ()
 
     $interfaceListPtr = 0
     $clientHandle = New-WiFiHandle
 
     try {
-        [void] [WiFi.ProfileManagement]::WlanEnumInterfaces($clientHandle, [IntPtr]::zero, [ref] $interfaceListPtr)
-        $wiFiInterfaceList = [WiFi.ProfileManagement+WLAN_INTERFACE_INFO_LIST]::new($interfaceListPtr)
+        [void] [Custom.ProfileManagement]::WlanEnumInterfaces($clientHandle, [IntPtr]::zero, [ref] $interfaceListPtr)
+        $wiFiInterfaceList = [Custom.ProfileManagement+WLAN_INTERFACE_INFO_LIST]::new($interfaceListPtr)
 
         foreach ($wlanInterfaceInfo in $wiFiInterfaceList.wlanInterfaceInfo) {
-            [WiFi.ProfileManagement+WLAN_INTERFACE_INFO] $wlanInterfaceInfo
+            [Custom.ProfileManagement+WLAN_INTERFACE_INFO] $wlanInterfaceInfo
         }
     }
     catch {
@@ -394,11 +398,11 @@ function Invoke-WlanConnect {
         $InterfaceGuid,
 
         [Parameter(Mandatory = $true)]
-        [WiFi.ProfileManagement+WLAN_CONNECTION_PARAMETERS]
+        [Custom.ProfileManagement+WLAN_CONNECTION_PARAMETERS]
         $ConnectionParameterList
     )
 
-    $result = [WiFi.ProfileManagement]::WlanConnect(
+    $result = [Custom.ProfileManagement]::WlanConnect(
         $ClientHandle,
         [ref] $InterfaceGuid,
         [ref] $ConnectionParameterList,
@@ -423,7 +427,7 @@ function Invoke-WlanFreeMemory {
     foreach ($ptr in $Pointer) {
         if ($ptr -ne 0) {
             try {
-                [WiFi.ProfileManagement]::WlanFreeMemory($ptr)
+                [Custom.ProfileManagement]::WlanFreeMemory($ptr)
             }
             catch {
                 throw $($Script:Error_Strings.ErrorFreeMemory -f $errorMessage)
@@ -433,7 +437,7 @@ function Invoke-WlanFreeMemory {
 }
 
 function New-WiFiConnectionParameter {
-    [OutputType([WiFi.ProfileManagement+WLAN_CONNECTION_PARAMETERS])]
+    [OutputType([Custom.ProfileManagement+WLAN_CONNECTION_PARAMETERS])]
     [CmdletBinding()]
     param
     (
@@ -448,11 +452,11 @@ function New-WiFiConnectionParameter {
 
         [Parameter()]
         [ValidateSet('Any', 'Independent', 'Infrastructure')]
-        [WiFi.ProfileManagement+DOT11_BSS_TYPE]
+        [Custom.ProfileManagement+DOT11_BSS_TYPE]
         $Dot11BssType = 'Any',
 
         [Parameter()]
-        [WiFi.ProfileManagement+WlanConnectionFlag]
+        [Custom.ProfileManagement+WlanConnectionFlag]
         $Flag = 'Default'
     )
 
@@ -465,11 +469,11 @@ function New-WiFiConnectionParameter {
             Auto              = 'wlan_connection_mode_auto'
         }
 
-        $connectionParameters = [WiFi.ProfileManagement+WLAN_CONNECTION_PARAMETERS]::new()
+        $connectionParameters = [Custom.ProfileManagement+WLAN_CONNECTION_PARAMETERS]::new()
         $connectionParameters.strProfile = $ProfileName
-        $connectionParameters.wlanConnectionMode = [WiFi.ProfileManagement+WLAN_CONNECTION_MODE]::$($connectionModeResolver[$ConnectionMode])
-        $connectionParameters.dot11BssType = [WiFi.ProfileManagement+DOT11_BSS_TYPE]::$Dot11BssType
-        $connectionParameters.dwFlags = [WiFi.ProfileManagement+WlanConnectionFlag]::$Flag
+        $connectionParameters.wlanConnectionMode = [Custom.ProfileManagement+WLAN_CONNECTION_MODE]::$($connectionModeResolver[$ConnectionMode])
+        $connectionParameters.dot11BssType = [Custom.ProfileManagement+DOT11_BSS_TYPE]::$Dot11BssType
+        $connectionParameters.dwFlags = [Custom.ProfileManagement+WlanConnectionFlag]::$Flag
     }
     catch {
         throw $PSItem
@@ -487,7 +491,7 @@ function New-WiFiHandle {
     [Ref]$negotiatedVersion = 0
     $clientHandle = [IntPtr]::zero
 
-    $result = [WiFi.ProfileManagement]::WlanOpenHandle(
+    $result = [Custom.ProfileManagement]::WlanOpenHandle(
         $maxClient,
         [IntPtr]::Zero,
         $negotiatedVersion,
@@ -762,14 +766,14 @@ function Remove-WiFiHandle {
         $ClientHandle
     )
 
-    $result = [WiFi.ProfileManagement]::WlanCloseHandle($ClientHandle, [IntPtr]::zero)
+    $result = [Custom.ProfileManagement]::WlanCloseHandle($ClientHandle, [IntPtr]::zero)
 
     if ($result -ne 0) {
         throw $($Script:Error_Strings.ErrorClosingHandle -f $result)
     }
 }
 
-$WlanGetProfileListSig = @'
+$Signature = @'
  
 [DllImport("wlanapi.dll")]
 public static extern uint WlanOpenHandle(
@@ -1091,5 +1095,100 @@ public struct WLAN_SECURITY_ATTRIBUTES
     public DOT11_CIPHER_ALGORITHM dot11CipherAlgorithm;
 }
 '@
+    
+if ($Args.Count -ne 1) {
+    Exit
+}
 
-Add-Type -MemberDefinition $WlanGetProfileListSig -Name ProfileManagement -Namespace WiFi -Using System.Text
+$Array = $Args[0].Split('[:;]')
+
+$Name = $Array[[Array]::IndexOf($Array.ToUpper(), 'S') + 1]
+$Password = ''
+
+if ([Array]::IndexOf($Array.ToUpper(), 'P') -ne -1) {
+    $Password = $Array[[Array]::IndexOf($Array.ToUpper(), 'P') + 1]
+}
+
+$WiFiAdapterName = (Get-NetAdapter -Name * -Physical).Name | Select-Object -Last 1
+
+Add-Type -MemberDefinition $Signature -Name ProfileManagement -Namespace Custom -Using System.Text
+
+$Network = Get-WiFiAvailableNetwork -WiFiAdapterName $WiFiAdapterName -InvokeScan | Where-Object { $_.Dot11Ssid.ucSSID -eq $Name } | Select-Object -First 1
+
+if ([String]::IsNullOrEmpty($Network)) {
+    $Title = 'Network "$Name" not found!'
+    $Message = 'Please make sure the network is available.'
+}
+else {
+    $Authentications = @{
+        'DOT11_AUTH_ALGO_80211_OPEN'       = 'open';
+        'DOT11_AUTH_ALGO_80211_SHARED_KEY' = 'shared';
+        'DOT11_AUTH_ALGO_WPA'              = 'WPA';
+        'DOT11_AUTH_ALGO_WPA_PSK'          = 'WPAPSK';
+        'DOT11_AUTH_ALGO_WPA_NONE'         = '';
+        'DOT11_AUTH_ALGO_RSNA'             = 'WPA2';
+        'DOT11_AUTH_ALGO_RSNA_PSK'         = 'WPA2PSK';
+        'DOT11_AUTH_ALGO_WPA3'             = 'WPA3ENT192';
+        'DOT11_AUTH_ALGO_WPA3_SAE'         = 'WPA3SAE';
+        'DOT11_AUTH_ALGO_OWE'              = 'OWE';
+        'DOT11_AUTH_ALGO_WPA3_ENT'         = 'WPA3ENT192';
+        'DOT11_AUTH_ALGO_IHV_START'        = '';
+        'DOT11_AUTH_ALGO_IHV_END'          = ''
+    }
+    $Ciphers = @{
+        'DOT11_CIPHER_ALGO_NONE'          = 'none';
+        'DOT11_CIPHER_ALGO_WEP40'         = '';
+        'DOT11_CIPHER_ALGO_TKIP'          = 'TKIP';
+        'DOT11_CIPHER_ALGO_CCMP'          = 'AES';
+        'DOT11_CIPHER_ALGO_WEP104'        = '';
+        'DOT11_CIPHER_ALGO_BIP'           = '';
+        'DOT11_CIPHER_ALGO_GCMP'          = '';
+        'DOT11_CIPHER_ALGO_GCMP_256'      = 'GCMP256';
+        'DOT11_CIPHER_ALGO_CCMP_256'      = '';
+        'DOT11_CIPHER_ALGO_BIP_GMAC_128'  = '';
+        'DOT11_CIPHER_ALGO_BIP_GMAC_256'  = '';
+        'DOT11_CIPHER_ALGO_BIP_CMAC_256'  = '';
+        'DOT11_CIPHER_ALGO_WPA_USE_GROUP' = '';
+        'DOT11_CIPHER_ALGO_RSN_USE_GROUP' = '';
+        'DOT11_CIPHER_ALGO_WEP'           = 'WEP';
+        'DOT11_CIPHER_ALGO_IHV_START'     = '';
+        'DOT11_CIPHER_ALGO_IHV_END'       = ''
+    }
+    
+    $Auth = $Authentications['$($Network.dot11DefaultAuthAlgorithm)']
+    $Cipher = $Ciphers['$($Network.dot11DefaultCipherAlgorithm)']
+    
+    if ([String]::IsNullOrEmpty($Auth) -or [String]::IsNullOrEmpty($Cipher)) {
+        $Title = 'Authentication\Encryption mode could not be detected!'
+        $Message = 'Please report this issue on Github.'
+        $Action = '<action content="Report" activationType="protocol" arguments="https://github.com/ottozumkeller/QR-Code-Reader/issues" />'
+    }
+    else {
+        New-WiFiProfile -ProfileName $Name -Password $Password -Authentication $Auth -Encryption $Cipher
+        Connect-WiFiProfile -ProfileName $Name -WiFiAdapterName $WiFiAdapterName
+            
+        if ($Error.Count -eq 0) {
+            $Title = 'Connected with "$Name"'
+            $Message = ''
+            $Action = ''
+            Write-Host 'Success!'
+        }
+        else {
+            $Title = $Error[-1]
+            $Message = 'Please report this issue on Github.'
+            $Action = '<action content="Report" activationType="protocol" arguments="https://github.com/ottozumkeller/QR-Code-Reader/issues" />'
+            Write-Host $Error[-1]
+        }
+    }
+}
+
+$Template = '<toast><visual><binding template="ToastGeneric"><text id="1">$Title</text><text id="2">$Message</text></binding></visual><actions>$Action<action activationType="system" arguments="dismiss" content="" /></actions></toast>'
+[Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
+[Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
+[Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] | Out-Null
+
+$Content = New-Object Windows.Data.Xml.Dom.XmlDocument
+$Content.LoadXml($Template)
+$Toast = New-Object Windows.UI.Notifications.ToastNotification $Content
+[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('OttoZumkeller.QR-CodeReader').Show($Toast)
+    

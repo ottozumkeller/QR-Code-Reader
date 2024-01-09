@@ -9,8 +9,8 @@
 ;@Ahk2Exe-AddResource qr_reader_dark.ico, 207  ; Replaces 'H on red'
 ;@Ahk2Exe-AddResource qr_reader_light.ico, 208  ; Replaces 'S on red'
 ;@Ahk2Exe-SetMainIcon qr_reader_dark.ico
-;@Ahk2Exe-UseResourceLang 0x0001
-;@Ahk2Exe-SetCopyright Copyright Otto Zumkeller 2023
+;@Ahk2Exe-SetCopyright Otto Zumkeller 2024
+;@Ahk2Exe-SetOrigFilename reader.exe
 
 SetWorkingDir(A_ScriptDir)
 
@@ -33,10 +33,6 @@ SetPreferredAppMode := DllCall("GetProcAddress", "ptr", Theme, "ptr", 135, "ptr"
 FlushMenuThemes := DllCall("GetProcAddress", "ptr", Theme, "ptr", 136, "ptr")
 DllCall(SetPreferredAppMode, "int", 1)
 DllCall(FlushMenuThemes)
-
-if (A_Args.Length > 0) {
-    Connect()
-}
 
 ;Check every 2 seconds if theme has changed
 SetTimer(CheckTheme, 2000)
@@ -175,109 +171,6 @@ Scan(*)
         }
     )"
     
-    RunWait("PowerShell.exe -NoExit -Command &{" . Script . "}", , "Min")
-    ;RunWait("PowerShell.exe -WindowStyle Hidden -Command &{" . Script . "}", , "Hide")
-}
-
-Connect()
-{
-    ;Powershell:
-    ;Strings need to be enclosed with '. For ", write \"
-    Script := "
-    (
-        $ErrorActionPreference = 'SilentlyContinue'
-        $Param = 
-    )" . " '" . A_Args[1] . "'" . "
-    (
-        
-        $Array = $Param.Split('[:;]')
-
-        $Name = $Array[[Array]::IndexOf($Array.ToUpper(), 'S') + 1]
-        $Password = ''
-        If ([Array]::IndexOf($Array.ToUpper(), 'P') -ne -1) {
-            $Password = $Array[[Array]::IndexOf($Array.ToUpper(), 'P') + 1]
-        }
-
-        Import-Module -Name .\module.psm1
-
-        $WiFiAdapterName = (Get-NetAdapter -Name * -Physical).Name | Select-Object -Last 1
-
-        $Network = Get-WiFiAvailableNetwork -WiFiAdapterName $WiFiAdapterName -InvokeScan | Where-Object { $_.Dot11Ssid.ucSSID -eq $Name } | Select-Object -First 1
-        if ($Network -eq '' -or $Null -eq $Network) {
-            $Title = 'Network \"' + $Name + '\" not found!'
-            $Message = 'Please make sure the network is available.'
-        }
-        else {
-            $Authentications = @{
-                'DOT11_AUTH_ALGO_80211_OPEN'       = 'open';
-                'DOT11_AUTH_ALGO_80211_SHARED_KEY' = 'shared';
-                'DOT11_AUTH_ALGO_WPA'              = 'WPA';
-                'DOT11_AUTH_ALGO_WPA_PSK'          = 'WPAPSK';
-                'DOT11_AUTH_ALGO_WPA_NONE'         = '';
-                'DOT11_AUTH_ALGO_RSNA'             = 'WPA2';
-                'DOT11_AUTH_ALGO_RSNA_PSK'         = 'WPA2PSK';
-                'DOT11_AUTH_ALGO_WPA3'             = 'WPA3ENT192';
-                'DOT11_AUTH_ALGO_WPA3_SAE'         = 'WPA3SAE';
-                'DOT11_AUTH_ALGO_OWE'              = 'OWE';
-                'DOT11_AUTH_ALGO_WPA3_ENT'         = 'WPA3ENT192';
-                'DOT11_AUTH_ALGO_IHV_START'        = '';
-                'DOT11_AUTH_ALGO_IHV_END'          = ''
-            }
-            $Ciphers = @{
-                'DOT11_CIPHER_ALGO_NONE'          = 'none';
-                'DOT11_CIPHER_ALGO_WEP40'         = '';
-                'DOT11_CIPHER_ALGO_TKIP'          = 'TKIP';
-                'DOT11_CIPHER_ALGO_CCMP'          = 'AES';
-                'DOT11_CIPHER_ALGO_WEP104'        = '';
-                'DOT11_CIPHER_ALGO_BIP'           = '';
-                'DOT11_CIPHER_ALGO_GCMP'          = '';
-                'DOT11_CIPHER_ALGO_GCMP_256'      = 'GCMP256';
-                'DOT11_CIPHER_ALGO_CCMP_256'      = '';
-                'DOT11_CIPHER_ALGO_BIP_GMAC_128'  = '';
-                'DOT11_CIPHER_ALGO_BIP_GMAC_256'  = '';
-                'DOT11_CIPHER_ALGO_BIP_CMAC_256'  = '';
-                'DOT11_CIPHER_ALGO_WPA_USE_GROUP' = '';
-                'DOT11_CIPHER_ALGO_RSN_USE_GROUP' = '';
-                'DOT11_CIPHER_ALGO_WEP'           = 'WEP';
-                'DOT11_CIPHER_ALGO_IHV_START'     = '';
-                'DOT11_CIPHER_ALGO_IHV_END'       = ''
-            }
-        
-            $Auth = $Authentications[\"$($Network.dot11DefaultAuthAlgorithm)\"]
-            $Cipher = $Ciphers[\"$($Network.dot11DefaultCipherAlgorithm)\"]
-        
-            if ([String]::IsNullOrEmpty($Auth) -or [String]::IsNullOrEmpty($Cipher)) {
-                $Title = 'Authentication\Encryption mode could not be detected!'
-                $Message = 'Please report this issue on Github.'
-                $Action = '<action content=\"Report\" activationType=\"protocol\" arguments=\"https://github.com/ottozumkeller/QR-Code-Reader/issues\" />'
-            } else {
-                New-WiFiProfile -ProfileName $Name -Password $Password -Authentication $Auth -Encryption $Cipher
-                Connect-WiFiProfile -ProfileName $Name -WiFiAdapterName $WiFiAdapterName
-                
-                if ($Error.Count -eq 0) {
-                    $Title = 'Connected with \"' + $Name + '\"'
-                    $Message = ''
-                    $Action = ''
-                } else {
-                    $Title = $Error[-1]
-                    $Message = 'Please report this issue on Github.'
-                    $Action = '<action content=\"Report\" activationType=\"protocol\" arguments=\"https://github.com/ottozumkeller/QR-Code-Reader/issues\" />'
-                }
-            }
-        }
-
-        $Template = '<toast><visual><binding template=\"ToastGeneric\"><text id=\"1\">' + $Title + '</text><text id=\"2\">' + $Message + '</text></binding></visual><actions>' + $Action + '<action activationType=\"system\" arguments=\"dismiss\" content=\"\" /></actions></toast>'
-
-        [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
-        [Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
-        [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] | Out-Null
-
-        $Content = New-Object Windows.Data.Xml.Dom.XmlDocument
-        $Content.LoadXml($Template)
-        $Toast = New-Object Windows.UI.Notifications.ToastNotification $Content
-        [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('OttoZumkeller.QR-CodeReader').Show($Toast)
-    )"
-
     ;RunWait("PowerShell.exe -NoExit -Command &{" . Script . "}", , "Min")
     RunWait("PowerShell.exe -WindowStyle Hidden -Command &{" . Script . "}", , "Hide")
 }
