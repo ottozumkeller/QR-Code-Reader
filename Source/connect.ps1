@@ -1,7 +1,5 @@
 $ErrorActionPreference = 'Stop'
 
-Write-Host "Test"
-
 $Script:Error_Strings = @{
     ErrorOpeningHandle = 'Error opening WiFi handle. Message {0}'
     HandleClosed = 'Handle successfully closed.'
@@ -1171,13 +1169,11 @@ else {
             $Title = 'Connected with "$Name"'
             $Message = ''
             $Action = ''
-            Write-Host 'Success!'
         }
         else {
             $Title = $Error[-1]
             $Message = 'Please report this issue on Github.'
             $Action = '<action content="Report" activationType="protocol" arguments="https://github.com/ottozumkeller/QR-Code-Reader/issues" />'
-            Write-Host $Error[-1]
         }
     }
 }
