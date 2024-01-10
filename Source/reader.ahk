@@ -153,7 +153,7 @@ Scan(*)
                 If (([Uri] $Title_String).Scheme -eq 'wifi') {
                     $Array = $Title_String.Split('[;:]')
                     $Visual_Title_String = 'WiFi QR-Code detected!'
-                    $Info_String = 'Network name: ' + $Array[[Array]::IndexOf($Array, 'S') + 1]
+                    $Info_String = 'Network name: ' + $Array[[Array]::IndexOf($Array.ToUpper(), 'S') + 1]
                     $Open = '<action content=\"Connect\" activationType=\"protocol\" arguments=\"' + $Title_String + '\" />'
                 }
             }

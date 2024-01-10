@@ -9,5 +9,5 @@ build_ahk.bat
 test.bat
 reader.exe
 connect.exe
-/Test
+/Manifests
 

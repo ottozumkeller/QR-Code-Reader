@@ -20,24 +20,24 @@
         </Directory>
 
         <DirectoryRef Id="RootFolder">
-            <Component Id="reader.exe" Guid="4DA623FE-6FBE-4893-8059-85F35FC355A7">
-                <File Id="fil8CCA8C6EB7A4B3CDC338CA8049167C7C" KeyPath="yes" Source="..\Source\reader.exe" />
+            <Component Id="Reader" Guid="4DA623FE-6FBE-4893-8059-85F35FC355A7">
+                <File Id="reader.exe" KeyPath="yes" Source=".\reader.exe" />
             </Component>
-            <Component Id="connect.exe" Guid="4DC623FE-6FBE-4893-8059-85F35FC355A7">
-                <File Id="fil8CCA8C6EB7A4B3CAB338CA8049167C7C" KeyPath="yes" Source="..\Source\connect.exe" />
+            <Component Id="Connect" Guid="4DC623FE-6FBE-4893-8059-85F35FC355A7">
+                <File Id="connect.exe" KeyPath="yes" Source=".\connect.exe" />
             </Component>
-            <Component Id="zxing.dll" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
-                <File Id="fil8D15B7762EC8AE317B977ABC90F08443" KeyPath="yes" Source="..\Source\zxing.dll" />
+            <Component Id="ZXing" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
+                <File Id="zxing.dll" KeyPath="yes" Source="..\..\Source\zxing.dll" />
             </Component>
         </DirectoryRef>
 
-        <Icon Id="Icon" SourceFile="..\Source\reader.exe" />
+        <Icon Id="Icon" SourceFile=".\reader.exe" />
 
         <Property Id="ARPPRODUCTICON" Value="Icon" />
         <Property Id="ARPHELPLINK" Value="https://github.com/ottozumkeller/QR-Code-Reader" />
 
         <DirectoryRef Id="ApplicationProgramsFolder">
-            <Component Id="ApplicationShortcut" Guid="ca561415-35ac-46ea-ae4d-099e4b28bc30">
+            <Component Id="Shortcut" Guid="ca561415-35ac-46ea-ae4d-099e4b28bc30">
                 <Shortcut Id="ApplicationStartMenuShortcut" 
                           Name="QR-Code Reader"
                           Description="QR-Code Reader using Windows Snipping Tool, ZBar Image and AutoHotkey"
@@ -59,15 +59,15 @@
         </DirectoryRef>
 
         <Feature Id="MainApplication" Title="Main Application" Level="1">
-            <ComponentRef Id="ApplicationShortcut" />
-            <ComponentRef Id="reader.exe" />
-            <ComponentRef Id="connect.exe" />
-            <ComponentRef Id="zxing.dll" />
+            <ComponentRef Id="Shortcut" />
+            <ComponentRef Id="Reader" />
+            <ComponentRef Id="Connect" />
+            <ComponentRef Id="ZXing" />
         </Feature>
 
-        <CustomAction Id="Close" Directory="ProgramFilesFolder" Return="ignore" ExeCommand="&quot;[SystemFolder]taskkill.exe&quot; /f /im reader.exe; /im key.exe" />
-        <CustomAction Id="Start" Directory="ProgramFilesFolder" Return="ignore" ExeCommand="[ProgramFilesFolder]reader.exe" />
-        
+        <CustomAction Id="Close" Directory="ProgramFilesFolder" Return="ignore" ExeCommand="&quot;[SystemFolder]taskkill.exe&quot; /f /im reader.exe /im key.exe" />
+        <CustomAction Id="Start" Return="asyncNoWait" FileKey="reader.exe" ExeCommand="" />
+
         <InstallExecuteSequence>
             <Custom Action="Close" Before="InstallValidate"></Custom>
             <Custom Action="Start" After="InstallFinalize"></Custom>
