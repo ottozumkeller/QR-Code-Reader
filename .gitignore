@@ -5,6 +5,7 @@ build_ahk.bat
 *.msi
 *.wixobj
 *.wixpdb
+*.vbs
 *.xcf
 test.bat
 reader.exe
