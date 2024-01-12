@@ -45,7 +45,6 @@
                           WorkingDirectory="RootFolder"
                           Icon="Icon">
                     <ShortcutProperty Key="System.AppUserModel.ID" Value="OttoZumkeller.QR-CodeReader" />
-                    <ShortcutProperty Key="System.AppUserModel.ToastActivatorCLSID" Value="{1dbb2394-69a0-40a4-9222-6e5e0d3e3485}"></ShortcutProperty>
 		        </Shortcut>
 
                 <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
