@@ -31,7 +31,7 @@
             </Component>
         </DirectoryRef>
 
-        <Icon Id="Icon" SourceFile=".\reader.exe" />
+        <Icon Id="Icon" SourceFile="..\..\Source\qr_reader_dark.ico" />
 
         <Property Id="ARPPRODUCTICON" Value="Icon" />
         <Property Id="ARPHELPLINK" Value="https://github.com/ottozumkeller/QR-Code-Reader" />
@@ -40,10 +40,8 @@
             <Component Id="Shortcut" Guid="ca561415-35ac-46ea-ae4d-099e4b28bc30">
                 <Shortcut Id="ApplicationStartMenuShortcut" 
                           Name="QR-Code Reader"
-                          Description="QR-Code Reader using Windows Snipping Tool, ZBar Image and AutoHotkey"
                           Target="[ProgramFilesFolder]QR-Code Reader\reader.exe"
-                          WorkingDirectory="RootFolder"
-                          Icon="Icon">
+                          WorkingDirectory="RootFolder">
                     <ShortcutProperty Key="System.AppUserModel.ID" Value="OttoZumkeller.QR-CodeReader" />
 		        </Shortcut>
 

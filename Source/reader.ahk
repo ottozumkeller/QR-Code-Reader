@@ -56,9 +56,12 @@ CheckTheme()
     if (NewTheme != PrevTheme) {
         if (NewTheme = 1) {
             TraySetIcon(A_ScriptName, -206)
+            MsgBox(A_ScriptFullPath ", " A_StartMenu "\Programs\QR-Code Reader\QR-Code Reader.lnk, " A_ScriptDir ",,, " A_ScriptFullPath ",, -206")
+            FileCreateShortcut(A_ScriptFullPath, A_StartMenu "\Programs\QR-Code Reader\QR-Code Reader.lnk" , A_ScriptDir,,, A_ScriptFullPath,, -206)
             PrevTheme := 1
         } else {
             TraySetIcon(A_ScriptName, -207)
+            FileCreateShortcut(A_ScriptFullPath, A_StartMenu "\Programs\QR-Code Reader\QR-Code Reader.lnk" , A_ScriptDir,,, A_ScriptFullPath)
             PrevTheme := 0
         }
     }
