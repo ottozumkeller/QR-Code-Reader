@@ -72,15 +72,6 @@
     
 </details>
 
-## Roadmap
-  
-  - #### Version 1.0.3
-    - [ ] Improve WiFi QR code support (map Authentication mode and Encryption type correctly)
-   
-  - #### Version 1.0.4+
-  
-    - [ ] Add settings page for keyboard shortcut, etc.
-
 #
 
   <sub>* Links with an asterisk have been shortend with [tinyurl.com](https://tinyurl.com/app) for greater convenience, because Github doesn't allow "ms-settings://" links ☹️</sub>
