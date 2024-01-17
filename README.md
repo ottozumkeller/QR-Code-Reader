@@ -20,8 +20,7 @@
 
 - Scan barcodes directly from your computer screen with the familiar interface of Windows Snipping Tool.<br>
 
-  > Supported formats:<br>
-  > QR Code - EAN-8 - EAN-13 - Data Matrix - Aztec - PDF-417 - Code 39 - Code 93 - Code 128 - UPC-A - UPC-E - ITF - Codabar - MSI - RSS-14
+  > For a list of supported formats, see the [ZXing.Net Documentation](https://github.com/micjahn/ZXing.Net/blob/master/README.md) 
 
 - Copy the content of barcodes to the clipboard and display a notification.<br>
 - Directly open weblinks in your default browser via a notification.<br>
