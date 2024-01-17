@@ -6,7 +6,7 @@
   <br><br>
   
   # QR-Code Reader
-  QR-Code Reader is a QR code scanner application that allows you to scan and decode QR codes directly<br>
+  QR-Code Reader is a barcode scanner application that allows you to scan and decode QR codes (and other barcodes) directly<br>
   from your computer screen. This app is made possible by Windows Snipping Tool, the [ZXing.Net library](https://github.com/micjahn/ZXing.Net) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
   <br><br><br>
   [![](https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=Version&amp;logo=GitHub&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
@@ -18,8 +18,12 @@
 
 ## Features
 
-- Scan QR codes directly from your computer screen with the familiar interface of Windows Snipping Tool.<br>
-- Copy the content of QR codes to the clipboard and display a notification.<br>
+- Scan barcodes directly from your computer screen with the familiar interface of Windows Snipping Tool.<br>
+
+  > Supported formats:<br>
+  > QR Code - EAN-8 - EAN-13 - Data Matrix - Aztec - PDF-417 - Code 39 - Code 93 - Code 128 - UPC-A - UPC-E - ITF - Codabar - MSI - RSS-14
+
+- Copy the content of barcodes to the clipboard and display a notification.<br>
 - Directly open weblinks in your default browser via a notification.<br>
 - Directly connect to WiFi-Networks via a notification.
 
@@ -52,8 +56,8 @@
    - The key combination <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd>
    - A click on the system tray icon
 
-- Select the QR code or the whole screen via Windows Snipping Tool.
-- The content of the QR code is copied to the clipboard and displayed in a notification.
+- Select an area, window or the whole screen via Windows Snipping Tool.
+- The content of the barcode is copied to the clipboard and displayed in a notification.
 
    > For some QR codes the notification will display a custom action like "Follow Link" or "Connect" (see [Screenshot Collection](.\#Screenshots))
 
