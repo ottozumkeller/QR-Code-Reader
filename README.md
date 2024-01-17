@@ -41,7 +41,7 @@
 
 - You can install QR-Code Reader from the following sources:<br>
   #### GitHub
-    - Download the .msi package under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)<br>
+    - Download the .msi package for your architecture under [Releases](https://github.com/ottozumkeller/QR-Code-Reader/releases)<br>
   #### WinGet
     - Run the following command in a Command Line, PowerShell or Terminal window
       
