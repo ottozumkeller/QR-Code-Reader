@@ -1,8 +1,8 @@
 <br>
 <div align="center">
   
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_dark.png#gh-dark-mode-only" height="150px"/>
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_light.png#gh-light-mode-only" height="150px"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_dark.png#gh-dark-mode-only" height="200px"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_light.png#gh-light-mode-only" height="200px"/>
   <br><br>
   
   # QR-Code Reader
@@ -71,15 +71,6 @@
     </p>
     
 </details>
-
-## Roadmap
-  
-  - #### Version 1.0.3
-    - [ ] Improve WiFi QR code support (map Authentication mode and Encryption type correctly)
-   
-  - #### Version 1.0.4+
-  
-    - [ ] Add settings page for keyboard shortcut, etc.
 
 #
 
