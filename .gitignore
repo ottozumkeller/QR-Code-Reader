@@ -1,6 +1,7 @@
 .vscode
 *.txt
 *.png
+*.svg
 build_ahk.bat
 *.msi
 *.wixobj

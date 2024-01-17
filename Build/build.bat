@@ -21,4 +21,4 @@ del *.wixobj
 del *.wixpdb
 del *.exe
 
-pause
+if %errorlevel% neq 0 echo pause
