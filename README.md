@@ -48,6 +48,12 @@
       ```cmd
       winget install OttoZumkeller.QR-CodeReader
 
+  #### Chocolatey
+    - Use the following command
+      
+      ```cmd
+      choco install qr-codereader
+
 ## Usage
 
 - Open QR-Code Reader from:
