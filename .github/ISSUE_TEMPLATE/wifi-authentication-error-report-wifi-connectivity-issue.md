@@ -1,5 +1,5 @@
 ---
-name: Authentication/Encryption Error Report/WiFi Connectivity Issue
+name: WiFi Authentication Error Report/WiFi Connectivity Issue
 about: Create a bug report if you encountered an authentication/encryption error message
   or have other issues connecting to a wifi network
 title: "[BUG] "
