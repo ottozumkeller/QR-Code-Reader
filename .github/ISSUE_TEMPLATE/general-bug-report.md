@@ -1,7 +1,7 @@
 ---
 name: General Bug Report
 about: Create a bug report if you encountered any sort of bug or crash
-title: "[BUG]"
+title: "[BUG] "
 labels: bug
 assignees: ''
 
