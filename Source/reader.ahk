@@ -167,6 +167,6 @@ Scan(*)
         [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($AppId).Show($Toast)
     )"
     
-    RunWait("PowerShell.exe -NoExit -Command &{" . Script . "}", , "Min")
-    ;RunWait("PowerShell.exe -WindowStyle Hidden -Command &{" . Script . "}", , "Hide")
+    ;RunWait("PowerShell.exe -NoExit -Command &{" . Script . "}", , "Min")
+    RunWait("PowerShell.exe -WindowStyle Hidden -Command &{" . Script . "}", , "Hide")
 }
