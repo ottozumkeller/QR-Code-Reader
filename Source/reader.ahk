@@ -3,7 +3,7 @@
 
 ;@Ahk2Exe-SetName QR-Code Reader
 ;@Ahk2Exe-SetDescription QR-Code Reader
-;@Ahk2Exe-SetVersion 1.1.1
+;@Ahk2Exe-SetVersion 1.1.2
 ;@Ahk2Exe-AddResource qr_reader_dark.ico, 160  ; Replaces 'H on blue'
 ;@Ahk2Exe-AddResource qr_reader_light.ico, 206  ; Replaces 'S on green'
 ;@Ahk2Exe-AddResource qr_reader_dark.ico, 207  ; Replaces 'H on red'

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define Version = "1.1.1"?>
+<?define Version = "1.1.2"?>
 <?define UpgradeCode = "8633B604-CBB1-4F1A-988A-2F038D70DDBC"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
