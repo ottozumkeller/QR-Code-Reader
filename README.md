@@ -71,11 +71,16 @@
 <details>
   <summary>&nbsp;Show Screenshot Collection</summary><br>
     <p float="left" width="100%">
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1.png" width="49.5%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_2.png" width="49.5%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_3.png" width="49.5%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_4.png" width="49.5%" />
-      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_5.png" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1_dark.png#gh-dark-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_1_light.png#gh-light-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_2_dark.png#gh-dark-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_2_light.png#gh-light-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_3_dark.png#gh-dark-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_3_light.png#gh-light-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_4_dark.png#gh-dark-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_4_light.png#gh-light-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_5_dark.png#gh-dark-mode-only" width="49.5%" />
+      <img loading="lazy" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/screenshot_5_light.png#gh-light-mode-only" width="49.5%" />
     </p>
 </details>
 
