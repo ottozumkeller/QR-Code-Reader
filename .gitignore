@@ -1,6 +1,6 @@
 .vscode
 *.txt
-*.png
+qr_code_*.png
 *.svg
 build_ahk.bat
 *.msi
