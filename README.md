@@ -1,7 +1,7 @@
 <br>
 <div align="center">
   
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_dark.png#gh-dark-mode-only" width="60%"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_dark.png#gh-dark-mode-only" height="60%"/>
   <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_light.png#gh-light-mode-only" height="60%"/>
   <br><br>
   
