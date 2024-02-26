@@ -35,7 +35,7 @@
   > Check your Version under [Settings > System > About](https://tinyurl.com/4xscs5wb) <sup>[*](.\#Notes)</sup>
 - Windows Snipping Tool must be installed
   
-  > It is recommended to turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/yff2j59d) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
+  > *(Optional)* Turn off the notifications for Snipping Tool under [Settings > System > Notifications](https://tinyurl.com/yff2j59d) <sup>[*](.\#Notes)</sup> to immediately receive only the notification from QR-Code Reader.
 
 ## Installation
 
