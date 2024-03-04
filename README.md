@@ -1,8 +1,8 @@
 <br>
 <div align="center">
   
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/social_banner.png#gh-dark-mode-only" alt="Simplified symbolic QR code in white on a dark background" height="60%"/>
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/logo_light.png#gh-light-mode-only" alt="Simplified symbolic QR code in black on a white background" height="60%"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/social_banner.png#gh-dark-mode-only" width="60%"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/social_banner.png#gh-light-mode-only" width="60%"/>
   <br><br>
   
   # QR-Code Reader
