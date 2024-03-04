@@ -11,7 +11,7 @@
   [![](https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=version&amp;logo=github&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
   [![](https://img.shields.io/github/downloads/ottozumkeller/QR-Code-Reader/total?style=for-the-badge&amp;label=downloads&amp;logo=github&amp;color=2f81f7)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
   [![](https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=stars&amp;logo=github&amp;color=e3b341)](https://github.com/ottozumkeller/QR-Code-Reader/stargazers)
-  [![](https://img.shields.io/github/issues-raw/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=issues&amp;logo=github&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/issues)
+  [![](https://img.shields.io/github/issues/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=issues&amp;logo=github&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/issues)
     
 </div>
 <br>
