@@ -1,11 +1,10 @@
 <br>
 <div align="center">
   
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/social_banner.png#gh-dark-mode-only" width="60%"/>
-  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/social_banner.png#gh-light-mode-only" width="60%"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/social_banner.png#gh-dark-mode-only" width="100%"/>
+  <img alt="QR-Code Reader Logo" src="https://github.com/ottozumkeller/QR-Code-Reader/blob/main/Images/social_banner.png#gh-light-mode-only" width="100%"/>
   <br><br>
   
-  # QR-Code Reader
   QR-Code Reader is a barcode scanner application that allows you to scan and decode QR codes (and other barcodes) directly
   from your computer screen.<br>This app is made possible by Windows Snipping Tool, the [ZXing.Net library](https://github.com/micjahn/ZXing.Net) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
   <br><br><br>
