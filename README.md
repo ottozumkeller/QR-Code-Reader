@@ -8,11 +8,11 @@
   QR-Code Reader is a barcode scanner application that allows you to scan and decode barcodes directly
   from your computer screen.<br>This app is made possible by Windows Snipping Tool, [ZXing.Net](https://github.com/micjahn/ZXing.Net), [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey) and [Ps2Exe](https://github.com/MScholtes/PS2EXE).
   <br><br><br>
-  ![](https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=version&amp;logo=github&amp;color=2ea043&amp;link=https%3A%2F%2Fgithub.com%2Fottozumkeller%2FQR-Code-Reader%2Freleases)
-  ![](https://img.shields.io/github/downloads/ottozumkeller/QR-Code-Reader/total?style=for-the-badge&amp;label=downloads&amp;logo=github&amp;color=2f81f7&amp;link=https%3A%2F%2Fgithub.com%2Fottozumkeller%2FQR-Code-Reader%2Freleases)
-  ![](https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=stars&amp;logo=github&amp;color=e3b341&amp;link=https%3A%2F%2Fgithub.com%2Fottozumkeller%2FQR-Code-Reader%2Fstargazers)
-  ![](https://img.shields.io/github/issues/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=issues&amp;logo=github&amp;color=2ea043&amp;link=https%3A%2F%2Fgithub.com%2Fottozumkeller%2FQR-Code-Reader%2Fissues)
-  ![](https://img.shields.io/github/issues-closed/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=&amp;color=a371f7&amp;link=https%3A%2F%2Fgithub.com%2Fottozumkeller%2FQR-Code-Reader%2Fissues)
+  [![](https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=version&amp;logo=github&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
+  [![](https://img.shields.io/github/downloads/ottozumkeller/QR-Code-Reader/total?style=for-the-badge&amp;label=downloads&amp;logo=github&amp;color=2f81f7)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
+  [![](https://img.shields.io/github/stars/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=stars&amp;logo=github&amp;color=e3b341)](https://github.com/ottozumkeller/QR-Code-Reader/stargazers)
+  [![](https://img.shields.io/github/issues/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=issues&amp;logo=github&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/issues)
+  [![](https://img.shields.io/github/issues-closed/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=&amp;color=a371f7)](https://github.com/ottozumkeller/QR-Code-Reader/issues)
     
 </div>
 <br>
