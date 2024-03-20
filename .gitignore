@@ -12,5 +12,5 @@ test.bat
 reader.exe
 connect.exe
 /Manifests
-/Extensions
+/Build/Extensions
 
