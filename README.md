@@ -21,7 +21,7 @@
 
 - Scan barcodes directly from your computer screen with the familiar interface of Windows Snipping Tool.<br>
 
-  > For a full list of supported formats, see the [ZXing.Net Documentation](https://github.com/micjahn/ZXing.Net/blob/master/README.md#:~:text=decoder:-,UPC,417)
+  > For a full list of supported formats, see the <a href="https://github.com/micjahn/ZXing.Net/blob/master/README.md#:~:text=decoder:-,UPC,417" rel="noopener">ZXing.Net Documentation</a>
 
 - Copy the content of barcodes to the clipboard and display a notification.<br>
 - Directly open weblinks in your default browser via a notification.<br>
