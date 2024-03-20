@@ -27,11 +27,11 @@
                 <File Id="connect.exe" KeyPath="yes" Source=".\connect.exe" />
             </Component>
             <Component Id="ZXing" Guid="1F5CC818-906D-4126-BF07-1C5675FA36E9">
-                <File Id="zxing.dll" KeyPath="yes" Source="..\..\Source\zxing.dll" />
+                <File Id="zxing.dll" KeyPath="yes" Source="..\Source\zxing.dll" />
             </Component>
         </DirectoryRef>
 
-        <Icon Id="Icon" SourceFile="..\..\Source\qr_reader_dark.ico" />
+        <Icon Id="Icon" SourceFile="..\Source\qr_reader_dark.ico" />
 
         <Property Id="ARPPRODUCTICON" Value="Icon" />
         <Property Id="ARPHELPLINK" Value="https://github.com/ottozumkeller/QR-Code-Reader" />
