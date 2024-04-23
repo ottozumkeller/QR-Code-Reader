@@ -11,6 +11,7 @@ build_ahk.bat
 test.bat
 reader.exe
 connect.exe
+connect.ps1
 /Manifests
 /Build/Extensions
 
