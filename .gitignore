@@ -14,4 +14,5 @@ connect.exe
 connect.ps1
 /Manifests
 /Build/Extensions
+/Tests
 
