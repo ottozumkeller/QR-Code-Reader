@@ -1,5 +1,6 @@
 .vscode
 *.txt
+*.ps1
 qr_code_*.png
 *.svg
 build_ahk.bat
