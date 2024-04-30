@@ -6,7 +6,7 @@
   <br><br>
   
   QR-Code Reader is a barcode scanner application that allows you to scan and decode barcodes directly
-  from your computer screen.<br>This app is made possible by Windows Snipping Tool, [ZXing.Net](https://github.com/micjahn/ZXing.Net), [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey) and [Ps2Exe](https://github.com/MScholtes/PS2EXE).
+  from your computer screen.<br>This app is made possible by Windows Snipping Tool, [ZXing.Net](https://github.com/micjahn/ZXing.Net) and [AutoHotkey](https://github.com/AutoHotkey/AutoHotkey).
   <br><br><br>
   [![](https://img.shields.io/github/v/tag/ottozumkeller/QR-Code-Reader?style=for-the-badge&amp;label=version&amp;logo=github&amp;color=2ea043)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
   [![](https://img.shields.io/github/downloads/ottozumkeller/QR-Code-Reader/total?style=for-the-badge&amp;label=downloads&amp;logo=github&amp;color=2f81f7)](https://github.com/ottozumkeller/QR-Code-Reader/releases)
