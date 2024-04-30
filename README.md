@@ -29,8 +29,6 @@
 
   > For this feature to work, you need Windows 11 Version 24H2 or later (currently only available for Windows Insiders in the Dev Channel)
   
-  > WiFi-Support is currently experimental; if you notice any bugs report them under [Issues](https://github.com/ottozumkeller/QR-Code-Reader/issues)
-  
 ## System Requirements
 
 - Windows 10 Version 2004 (20H1) or later
