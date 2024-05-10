@@ -12,6 +12,6 @@ ahk2exe.exe /in "..\Source\reader.ahk" /out ".\reader.exe" /base "autohotkey64.e
 "Wix Toolset 3.11\candle.exe" setup.wxs -ext "WixUIExtension"
 "Wix Toolset 3.11\light.exe" "setup.wixobj" -ext "WixUIExtension" -out "QR-Code-Reader-%version%-x64.msi"
 
-del reader.exe *.wixobj *.wixpdb
+del *.wixobj *.wixpdb
 
 pause
