@@ -147,13 +147,12 @@ Scan(*)
     
         If (([Uri] $Title_String).Scheme -in $Schemes) {
             $Open = \"<action content='Follow Link' activationType='protocol' arguments='$Title_String' />\"
-        }
-
-        If (([Uri] $Title_String).Scheme -eq 'wifi') {
-            $Visual_Title_String = 'Network detected!'
-            $Array = $Title_String.Split('[:;]')
-            $Info_String = \"Network Name: $Array[[Array]::IndexOf($Array.ToUpper(), 'S') + 1]\"
-            $Open = \"<action content='Connect' activationType='protocol' arguments='$Title_String' />\"
+            If (([Uri] $Title_String).Scheme -eq 'wifi') {
+                $Visual_Title_String = 'Network detected!'
+                $Array = $Title_String.Split('[:;]')
+                $Info_String = \"Network Name: $($Array[$([Array]::IndexOf($Array.ToUpper(), 'S') + 1)])\"
+                $Open = \"<action content='Connect' activationType='protocol' arguments='$Title_String' />\"
+            }
         }
     
         $Template = \"<toast><visual><binding template='ToastGeneric'><text id='1'>$Visual_Title_String</text><text id='2'>$Info_String</text></binding></visual><actions>$Open<action activationType='system' arguments='dismiss' content='' /></actions></toast>\"
