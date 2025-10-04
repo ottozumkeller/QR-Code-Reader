@@ -28,8 +28,6 @@ report any [Issues](https://github.com/ottozumkeller/QR-Code-Reader/issues) you 
 - Copy the content of barcodes to the clipboard and display a notification.<br>
 - Directly open weblinks in your default browser via a notification.<br>
 - Directly connect to WiFi-Networks via a notification.
-
-  > For this feature to work, you need Windows 11 Version 24H2 or later (currently only available for Windows Insiders in the Dev Channel)
   
 ## System Requirements
 
