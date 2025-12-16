@@ -55,6 +55,13 @@ report any [Issues](https://github.com/ottozumkeller/QR-Code-Reader/issues) you 
       ```cmd
       choco install qr-codereader
 
+  #### AutoHotkey
+    - If you have AutoHotkey already installed you can download the folder contents from
+    
+      [https://github.com/ottozumkeller/QR-Code-Reader/tree/main/Source](https://github.com/ottozumkeller/QR-Code-Reader/tree/main/Source)
+
+      and run the plain AHK script
+
 ## Usage
 
 - Open QR-Code Reader from:
